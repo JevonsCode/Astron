@@ -1,0 +1,16 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "title": "i m a title!",
+            "content": "contentcontentcontentcontentcontentcontentcontentcontentcontent~",
+            "short_content": "content~"
+
+        },
+        {
+            "id": 2,
+            "title": "M78星发生政治大变动",
+            "content": "M78星发生政治大变动M78星发生政治大变动M78星发生政治大变动"
+        }
+    ]
+}

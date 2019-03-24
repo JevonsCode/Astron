@@ -1,0 +1,7 @@
+<block>
+    <view class="index">
+        <at-button type="primary" __triggerObserer="{{ _triggerObserer }}" className="my-3" bindonclick="increment" __fn_onClick="{{true}}">+</at-button>
+        <at-button type="secondary" __triggerObserer="{{ _triggerObserer }}" className="my-3" bindonclick="decrement" __fn_onClick="{{true}}">-</at-button>
+        <at-button type="secondary" __triggerObserer="{{ _triggerObserer }}" className="my-3" bindonclick="incrementAsync" __fn_onClick="{{true}}">Add Async</at-button><text>{{counter}}</text>
+    </view>
+</block>
