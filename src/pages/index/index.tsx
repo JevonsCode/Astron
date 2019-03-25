@@ -35,14 +35,12 @@ config: Config = {
 	navigationBarTitleText: '首页'
 }
 
- componentWillMount () {
-	// const response = Taro.request({
-	// 	url: `${ API_WS }/news`
-	// })
+async componentWillMount () {
+	const response = await Taro.request({
+		url: `${ API_WS }/news`
+	})
 
-	console.log(Taro.request({
-			url: `${ API_WS }/news`
-		}))
+	console.log(response,"response!")
 }
 
 componentWillReact () {
