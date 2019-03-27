@@ -4,7 +4,7 @@ import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import '@tarojs/async-await'
 
-import { AtButton } from 'taro-ui'
+import { AtButton, AtList, AtListItem } from 'taro-ui'
 
 import './index.scss'
 
@@ -36,12 +36,19 @@ config: Config = {
 	navigationBarTitleText: '首页'
 }
 
+state = {
+	news: []
+}
+
 async componentWillMount () {
 	const response = await Taro.request({
 		url: `${ API_WS }/news`
 	})
 
-	console.log(response,"response!")
+	console.log(response,"response!");
+	this.setState({
+		news: response.data
+	})
 }
 
 componentWillReact () {
@@ -72,13 +79,23 @@ incrementAsync = () => {
 }
 
 render () {
-	const { counterStore: { counter } } = this.props
+	const { counterStore: { counter } } = this.props;
+	const { news } = this.state;
 	return (
 	<View className='index'>
-		<AtButton type="primary" className='my-3' onClick={this.increment}>+</AtButton>
-		<AtButton type="secondary" className='my-3' onClick={this.decrement}>-</AtButton>
-		<AtButton type="secondary" className='my-3' onClick={this.incrementAsync}>Add Async</AtButton>
-		<Text>{counter}</Text>
+		<AtList>
+			{
+				news.map(newsItem => 
+					<AtListItem
+						key={ newsItem.id }
+						arrow='right'
+						// thumb=
+						title={ newsItem.title }
+						note={ newsItem.content }
+					/>	
+				)
+			}
+		</AtList>
 	</View>
 	)
 }

@@ -48,7 +48,7 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["counter", "counterStore"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["news", "counterStore"], _this.config = {
       navigationBarTitleText: '首页'
     }, _this.increment = function () {
       var counterStore = _this.props.counterStore;
@@ -76,6 +76,10 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
        * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
        * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
        */
+
+      this.state = {
+        news: []
+      };
     }
   }, {
     key: "componentWillMount",
@@ -95,8 +99,11 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
                 response = _context.sent;
 
                 console.log(response, "response!");
+                this.setState({
+                  news: response.data
+                });
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -136,10 +143,9 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
       ;
 
       var counter = this.__props.counterStore.counter;
+      var news = this.__state.news;
 
-      Object.assign(this.__state, {
-        counter: counter
-      });
+      Object.assign(this.__state, {});
       return this.__state;
     }
   }]);
@@ -150,7 +156,7 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
     "type": null,
     "value": null
   }
-}, _class.$$events = ["increment", "decrement", "incrementAsync"], _temp2);
+}, _class.$$events = [], _temp2);
 Index = tslib_1.__decorate([(0, _index3.inject)('counterStore'), _index3.observer], Index);
 exports.default = Index;
 

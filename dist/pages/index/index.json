@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "at-button": "../../npm/taro-ui/dist/weapp/components/button/index"
+    "at-list": "../../npm/taro-ui/dist/weapp/components/list/index",
+    "at-list-item": "../../npm/taro-ui/dist/weapp/components/list/item/index"
   },
   "navigationBarTitleText": "首页"
 }
