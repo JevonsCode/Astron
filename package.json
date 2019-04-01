@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@tarojs/async-await": "^1.2.22",
+    "@tarojs/cli": "^1.2.22",
     "@tarojs/components": "1.2.20",
     "@tarojs/mobx": "1.2.20",
     "@tarojs/mobx-h5": "1.2.20",
@@ -38,6 +39,7 @@
     "mobx": "4.8.0",
     "nerv-devtools": "^1.3.9",
     "nervjs": "^1.3.9",
+    "taro": "^0.0.7",
     "taro-ui": "^2.0.2"
   },
   "devDependencies": {
@@ -60,6 +62,9 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-taro": "1.2.20",
     "json-server": "^0.14.2",
+    "tslint": "^5.14.0",
+    "tslint-config-airbnb-base": "^0.3.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.0.1"
   }
 }

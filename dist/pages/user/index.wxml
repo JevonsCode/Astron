@@ -1,0 +1,6 @@
+<block>
+    <view>
+        <view class="page-demo"><text class="mx-1" bindtap="switchTab" data-e-tap-so="this">gogogo</text>
+        </view>
+    </view>
+</block>

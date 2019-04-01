@@ -1,7 +1,10 @@
 <block>
     <view class="index">
+        <at-curtain isOpened="{{isOpened}}" __triggerObserer="{{ _triggerObserer }}" bindonclose="onClose" __fn_onClose="{{true}}" data-e-onclose-so="this">
+            <image style="width:100%;height:250px" src="https://astron.db.jevons.xyz/src/default/star.gif"></image>
+        </at-curtain>
         <at-list __triggerObserer="{{ _triggerObserer }}">
-            <at-list-item wx:key="id" __triggerObserer="{{ _triggerObserer }}" arrow="right" title="{{newsItem.title}}" note="{{newsItem.content}}" wx:for="{{news}}" wx:for-item="newsItem" wx:for-index="_anonIdx"></at-list-item>
-        </at-list>
+            <at-list-item wx:key="id" __triggerObserer="{{ _triggerObserer }}" arrow="right" thumb="{{newsItem.picture}}" title="{{newsItem.title}}" note="{{newsItem.content}}" wx:for="{{news}}" wx:for-item="newsItem" wx:for-index="_anonIdx"></at-list-item>
+        </at-list><text number-of-lines="{{1}}">{{news[0].content}}</text>
     </view>
 </block>

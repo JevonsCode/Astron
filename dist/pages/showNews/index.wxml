@@ -1,0 +1,6 @@
+<block>
+    <view>
+        <search-bar __triggerObserer="{{ _triggerObserer }}"></search-bar>
+        <view class="page-demo">333</view>
+    </view>
+</block>

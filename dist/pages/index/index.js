@@ -48,8 +48,8 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["news", "counterStore"], _this.config = {
-      navigationBarTitleText: '首页'
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["news", "isOpened", "counterStore"], _this.config = {
+      navigationBarTitleText: "首页"
     }, _this.increment = function () {
       var counterStore = _this.props.counterStore;
 
@@ -78,8 +78,16 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
        */
 
       this.state = {
-        news: []
+        news: [],
+        isOpened: true
       };
+    }
+  }, {
+    key: "onClose",
+    value: function onClose() {
+      this.setState({
+        isOpened: false
+      });
     }
   }, {
     key: "componentWillMount",
@@ -92,7 +100,7 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
               case 0:
                 _context.next = 2;
                 return _index2.default.request({
-                  url: "http://localhost:5937" + "/news"
+                  url: "https://astron.db.jevons.xyz"
                 });
 
               case 2:
@@ -100,7 +108,7 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
 
                 console.log(response, "response!");
                 this.setState({
-                  news: response.data
+                  news: response.data.news
                 });
 
               case 5:
@@ -120,7 +128,7 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
   }, {
     key: "componentWillReact",
     value: function componentWillReact() {
-      console.log('componentWillReact');
+      console.log("componentWillReact");
     }
   }, {
     key: "componentDidMount",
@@ -156,8 +164,8 @@ var Index = (_temp2 = _class = function (_BaseComponent) {
     "type": null,
     "value": null
   }
-}, _class.$$events = [], _temp2);
-Index = tslib_1.__decorate([(0, _index3.inject)('counterStore'), _index3.observer], Index);
+}, _class.$$events = ["onClose"], _temp2);
+Index = tslib_1.__decorate([(0, _index3.inject)("counterStore"), _index3.observer], Index);
 exports.default = Index;
 
 Component(require('../../npm/@tarojs/taro-weapp/index.js').default.createComponent(Index, true));

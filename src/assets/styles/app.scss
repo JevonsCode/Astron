@@ -1,5 +1,10 @@
+// taro ui
 @import "./variable_overrides";
-
 @import "~taro-ui/dist/style/index.scss";
 
+// variables
+@import "./variables";
+
+// customize
 @import "./utilities";
+@import "page";
