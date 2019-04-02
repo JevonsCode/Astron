@@ -3,6 +3,12 @@ import { View, Text } from "@tarojs/components";
 import SearchBar from "../../components/search-bar/index";
 
 class ShowNews extends Component {
+    constructor(preps) {
+        super(preps);
+
+        this.switchTab = this.switchTab.bind(this);
+    }
+
     config = {
         navigationBarTitleText: "我也是一个页面"
     };
@@ -17,7 +23,7 @@ class ShowNews extends Component {
         return(
             <View>
                 <View className="page-demo">
-                    <Text className="mx-1" onClick={this.switchTab.bind(this)}>gogogo</Text>
+                    <Text className="mx-1" onClick={this.switchTab}>gogogo</Text>
                 </View>
             </View>
         );
