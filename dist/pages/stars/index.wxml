@@ -1,0 +1,19 @@
+<block>
+    <view class="wwww">
+        <view class="bodyw">
+            <view class="solar-syst">
+                <view class="sun"></view>
+                <view class="mercury"></view>
+                <view class="venus"></view>
+                <view class="earth"></view>
+                <view class="mars"></view>
+                <view class="jupiter"></view>
+                <view class="saturn"></view>
+                <view class="uranus"></view>
+                <view class="neptune"></view>
+                <view class="pluto"></view>
+                <view class="asteroids-belt"></view>
+            </view>
+        </view>
+    </view>
+</block>

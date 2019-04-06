@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/showNews/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/stars/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,6 +33,12 @@
         "iconPath": "assets/icon/like.png",
         "selectedIconPath": "assets/icon/like.png",
         "text": "3333"
+      },
+      {
+        "pagePath": "pages/stars/index",
+        "iconPath": "assets/icon/like.png",
+        "selectedIconPath": "assets/icon/like.png",
+        "text": "stars"
       }
     ]
   }

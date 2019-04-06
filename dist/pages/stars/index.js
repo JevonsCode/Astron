@@ -12,10 +12,6 @@ var _class, _temp2;
 
 var _index = require("../../npm/@tarojs/taro-weapp/index.js");
 
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -37,7 +33,7 @@ var ShowNews = (_temp2 = _class = function (_BaseComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ShowNews.__proto__ || Object.getPrototypeOf(ShowNews)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = [], _this.config = {
-      navigationBarTitleText: "我也是一个页面"
+      navigationBarTitleText: "I'm a page ~"
     }, _this.$$refs = [], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -45,15 +41,6 @@ var ShowNews = (_temp2 = _class = function (_BaseComponent) {
     key: "_constructor",
     value: function _constructor(preps) {
       _get(ShowNews.prototype.__proto__ || Object.getPrototypeOf(ShowNews.prototype), "_constructor", this).call(this, preps);
-
-      this.switchTab = this.switchTab.bind(this);
-    }
-  }, {
-    key: "switchTab",
-    value: function switchTab() {
-      _index2.default.switchTab({
-        url: "../showNews/index"
-      });
     }
   }, {
     key: "_createData",
@@ -68,7 +55,7 @@ var ShowNews = (_temp2 = _class = function (_BaseComponent) {
   }]);
 
   return ShowNews;
-}(_index.Component), _class.properties = {}, _class.$$events = ["switchTab"], _temp2);
+}(_index.Component), _class.properties = {}, _class.$$events = [], _temp2);
 exports.default = ShowNews;
 
 Component(require('../../npm/@tarojs/taro-weapp/index.js').default.createComponent(ShowNews, true));

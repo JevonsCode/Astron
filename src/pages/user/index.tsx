@@ -1,6 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
-import SearchBar from "../../components/search-bar/index";
 
 class ShowNews extends Component {
     constructor(preps) {

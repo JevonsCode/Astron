@@ -50,32 +50,37 @@ var _App = function (_BaseComponent) {
     var _this = _possibleConstructorReturn(this, (_App.__proto__ || Object.getPrototypeOf(_App)).apply(this, arguments));
 
     _this.config = {
-      pages: ['pages/index/index', 'pages/showNews/index', 'pages/user/index'],
+      pages: ["pages/index/index", "pages/showNews/index", "pages/user/index", "pages/stars/index"],
       window: {
-        backgroundTextStyle: 'light',
-        navigationBarBackgroundColor: '#fff',
-        navigationBarTitleText: 'WeChat',
-        navigationBarTextStyle: 'black'
+        backgroundTextStyle: "light",
+        navigationBarBackgroundColor: "#fff",
+        navigationBarTitleText: "WeChat",
+        navigationBarTextStyle: "black"
       },
       tabBar: {
-        color: '#666',
-        selectedColor: '#000',
-        backgroundColor: '#fff',
+        color: "#666",
+        selectedColor: "#000",
+        backgroundColor: "#fff",
         list: [{
-          pagePath: 'pages/index/index',
-          iconPath: 'assets/icon/like.png',
-          selectedIconPath: 'assets/icon/like.png',
-          text: '首页'
+          pagePath: "pages/index/index",
+          iconPath: "assets/icon/like.png",
+          selectedIconPath: "assets/icon/like.png",
+          text: "首页"
         }, {
-          pagePath: 'pages/showNews/index',
-          iconPath: 'assets/icon/like.png',
-          selectedIconPath: 'assets/icon/like.png',
-          text: 'show'
+          pagePath: "pages/showNews/index",
+          iconPath: "assets/icon/like.png",
+          selectedIconPath: "assets/icon/like.png",
+          text: "show"
         }, {
-          pagePath: 'pages/user/index',
-          iconPath: 'assets/icon/like.png',
-          selectedIconPath: 'assets/icon/like.png',
-          text: '3333'
+          pagePath: "pages/user/index",
+          iconPath: "assets/icon/like.png",
+          selectedIconPath: "assets/icon/like.png",
+          text: "3333"
+        }, {
+          pagePath: "pages/stars/index",
+          iconPath: "assets/icon/like.png",
+          selectedIconPath: "assets/icon/like.png",
+          text: "stars"
         }]
       }
     };
