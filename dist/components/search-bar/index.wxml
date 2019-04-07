@@ -1,5 +1,0 @@
-<block>
-    <view>
-        <at-search-bar value="{{value}}" __triggerObserer="{{ _triggerObserer }}" bindonchange="onChange" bindonactionclick="onActionClick" __fn_onChange="{{true}}" data-e-onchange-so="this" __fn_onActionClick="{{true}}" data-e-onactionclick-so="this"></at-search-bar>
-    </view>
-</block>

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "search-bar": "../../components/search-bar/index"
-  },
-  "navigationBarTitleText": "我是一个页面"
-}

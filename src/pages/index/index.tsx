@@ -1,25 +1,29 @@
 import { ComponentType } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Button, Text } from "@tarojs/components";
+import { View, Image, Text } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
 import "@tarojs/async-await";
+import NewsItem from "../../components/news-item";
+import Placeholder from "../../components/placeholder";
 
-import { AtButton, AtList, AtListItem, AtCurtain } from "taro-ui";
+// import { AtButton, AtList, AtListItem, AtCurtain } from "taro-ui";
 
 import "./index.scss";
 import { values } from "mobx";
 
-type PageStateProps = {
-    counterStore: {
-        counter: number,
-        increment: Function,
-        decrement: Function,
-        incrementAsync: Function
-    }
+type StateProps = {
+    news:newsItem[];
+    placeholder: boolean;
+};
+type newsItem = {
+    id: number,
+    title: string,
+    content: string,
+    picture: string[]
 };
 
 interface Index {
-    props: PageStateProps;
+    state: StateProps;
 }
 
 @inject("counterStore")
@@ -36,29 +40,34 @@ class Index extends Component {
         navigationBarTitleText: "首页"
     };
 
-    state = {
+    state:StateProps = {
         news: [],
-        isOpened: true,
+        placeholder: true
     };
-    onClose () {
-        this.setState({
-            isOpened: false
-        });
-    }
 
     async componentWillMount () {
         const response = await Taro.request({
             url: `${ API_WS }`
         });
 
-        console.log(response,"response!");
-        this.setState({
-            news: response.data.news
-        });
+        // 如果是开发环境就等2s
+        if (process.env.NODE_ENV === "development") {
+            console.log(response,"response! 开发模式ing");
+            setTimeout(() => {
+                this.setState({
+                    news: response.data.news,
+                    placeholder: false
+                });
+            }, 2000);
+        } else {
+            this.setState({
+                news: response.data.news,
+                placeholder: false
+            });
+        }
     }
 
     componentWillReact () {
-        console.log("componentWillReact");
     }
 
     componentDidMount () { }
@@ -69,51 +78,23 @@ class Index extends Component {
 
     componentDidHide () { }
 
-    increment = () => {
-        const { counterStore } = this.props;
-        counterStore.increment();
-    }
-
-    decrement = () => {
-        const { counterStore } = this.props;
-        counterStore.decrement();
-    }
-
-    incrementAsync = () => {
-        const { counterStore } = this.props;
-        counterStore.incrementAsync();
-    }
-
     render () {
-        const { counterStore: { counter } } = this.props;
-        const { news } = this.state;
+        const { news, placeholder } = this.state;
         return (
-	<View className="index">
-		<AtCurtain
-			isOpened={this.state.isOpened}
-			onClose={this.onClose.bind(this)}
-		>
-			<Image style="width:100%;height:250px" src="https://astron.db.jevons.xyz/src/default/star.gif" />
-      	</AtCurtain>
-		<AtList>
-			{
-				news.map(newsItem =>
-					<AtListItem
-						key={newsItem.id}
-						arrow="right"
-						thumb={newsItem.picture}
-						title={newsItem.title}
-						note={newsItem.content}
-						// extraText="1234567898765432"
-						// extraThumb={ newsItem.picture }
-					/>
-				)
-			}
-		</AtList>
-		<Text numberOfLines={1}>{news[0].content}</Text>
-	</View>
+        <View className="index">
+
+            <Placeholder className="m-3" quantity="10" isShow={placeholder} />
+
+            <View>
+                {
+                    news.map(newsItem =>
+                        <NewsItem data={newsItem} key={newsItem.id} />
+                    )
+                }
+            </View>
+        </View>
         );
     }
 }
 
-export default Index  as ComponentType;
+export default Index as ComponentType;

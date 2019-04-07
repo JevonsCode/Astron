@@ -1,24 +1,30 @@
-import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import Taro, { Component } from "@tarojs/taro";
+import { View } from "@tarojs/components";
 import { AtSearchBar } from "taro-ui";
 
 class SearchBar extends Component {
-    state = {
-        value: ''
+    constructor(props) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+        this.onActionClick = this.onActionClick.bind(this);
     }
+
+    state = {
+        value: ""
+    };
 
     onChange(value) {
         this.setState({
             value
-        })
+        });
     }
 
     onActionClick() {
-        console.log(`ss-> ${this.state.value}`)
+        console.log(`ss-> ${this.state.value}`);
     }
 
     onConfirm() {
-        console.log(`ss-> ${this.state.value}`)
+        console.log(`ss-> ${this.state.value}`);
     }
 
     render() {
@@ -26,11 +32,11 @@ class SearchBar extends Component {
             <View>
                 <AtSearchBar
                     value={this.state.value}
-                    onChange={this.onChange.bind(this)}
-                    onActionClick={this.onActionClick.bind(this)}
+                    onChange={this.onChange}
+                    onActionClick={this.onActionClick}
                 />
             </View>
-        )
+        );
     }
 }
 

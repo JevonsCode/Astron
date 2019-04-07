@@ -1,20 +1,8 @@
-import { observable } from 'mobx'
+import { observable } from "mobx";
+import Taro from "@tarojs/taro";
 
 const counterStore = observable({
-  counter: 0,
-  counterStore() {
-    this.counter++
-  },
-  increment() {
-    this.counter++
-  },
-  decrement() {
-    this.counter--
-  },
-  incrementAsync() {
-    setTimeout(() => {
-      this.counter++
-    }, 1000)
-  }
-})
-export default counterStore
+    counter: 0,
+});
+
+export default counterStore;

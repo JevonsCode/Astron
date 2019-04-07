@@ -3,7 +3,8 @@ export interface INewItem {
     id: number, // 生成唯一值 news[n].id = `${Date.now()}${Math.floor(Math.random()*10000)}`
     title: string,
     content: string,
-    pictures: string[]
+    pictures: string[],
+    date: string
 }
 
 export interface IUser {

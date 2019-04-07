@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "at-curtain": "../../npm/taro-ui/dist/weapp/components/curtain/index",
-    "at-list": "../../npm/taro-ui/dist/weapp/components/list/index",
-    "at-list-item": "../../npm/taro-ui/dist/weapp/components/list/item/index"
-  },
-  "navigationBarTitleText": "首页"
-}
