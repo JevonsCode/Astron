@@ -11,13 +11,13 @@
 - [ ] 资料&图像展示页 
 ![Progress](http://progressed.io/bar/0)
 
-- [x] 历史展示页 
+- [ ] 历史展示页 
 ![Progress](http://progressed.io/bar/0)
 
-- [x] 个人中心 
+- [ ] 个人中心 
 ![Progress](http://progressed.io/bar/0)
 
-- [x]  TODO OTHERS
+- [ ]  TODO OTHERS
 ![Progress](http://progressed.io/bar/0)
 
 
