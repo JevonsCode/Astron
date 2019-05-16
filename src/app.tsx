@@ -2,7 +2,8 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { Provider } from "@tarojs/mobx";
 import Index from "./pages/index";
 
-import counterStore from "./store/counter";
+// import counterStore from "./store/counter";
+import whichNews from "./store/news";
 
 import "./assets/styles/app.scss";
 
@@ -13,7 +14,7 @@ import "./assets/styles/app.scss";
 // }
 
 const store = {
-    counterStore
+    whichNews
 };
 
 class App extends Component {
@@ -27,15 +28,19 @@ class App extends Component {
     config: Config = {
         pages: [
             "pages/index/index",
-            "pages/showNews/index",
+            "pages/show-news/index",
             "pages/user/index",
-            "pages/stars/index"
+            "pages/stars/index",
+            // other pages
+            "pages/show-news-item/index"
         ],
         window: {
             backgroundTextStyle: "light",
             navigationBarBackgroundColor: "#fff",
             navigationBarTitleText: "WeChat",
-            navigationBarTextStyle: "black"
+            navigationBarTextStyle: "black",
+            enablePullDownRefresh: true,
+            onReachBottomDistance:50
         },
         tabBar: {
             color: "#666",
@@ -49,7 +54,7 @@ class App extends Component {
                     text: "首页"
                 },
                 {
-                    pagePath: "pages/showNews/index",
+                    pagePath: "pages/show-news/index",
                     iconPath: "assets/icon/like.png",
                     selectedIconPath: "assets/icon/like.png",
                     text: "show"
@@ -78,13 +83,13 @@ class App extends Component {
 
     componentDidCatchError () {}
 
-	// 在 App 类中的 render() 函数没有实际作用
-	// 请勿修改此函数
+    // 在 App 类中的 render() 函数没有实际作用
+    // 请勿修改此函数
     render () {
         return (
-		<Provider store={store}>
-			<Index />
-		</Provider>
+        <Provider store={store}>
+            <Index />
+        </Provider>
         );
     }
 }

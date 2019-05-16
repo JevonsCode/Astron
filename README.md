@@ -3,7 +3,7 @@
 关于天文学的小程序
 ![Progress](http://progressed.io/bar/2?title=coding)
 
-> TODO
+> Global TODO
 
 - [x] 首页 
 ![Progress](http://progressed.io/bar/10)
@@ -17,10 +17,24 @@
 - [ ] 个人中心 
 ![Progress](http://progressed.io/bar/0)
 
-- [ ]  TODO OTHERS
+---
+
+> Widget TODO
+
+- [ ] 富文本返回文本 css
+![Progress](http://progressed.io/bar/10)
+
+- [ ] 下拉加载 & 接口定义
 ![Progress](http://progressed.io/bar/0)
 
+- [ ] 滚动头部标签组件
+![Progress](http://progressed.io/bar/0)
 
+- [ ] 轮播图组件
+![Progress](http://progressed.io/bar/0)
+
+- [ ] other
+![Progress](http://progressed.io/bar/0)
 
 > 参考
 

@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
 
-class ShowNews extends Component {
+class ShowNews1 extends Component {
     constructor(preps) {
         super(preps);
 
@@ -14,7 +14,7 @@ class ShowNews extends Component {
 
     switchTab() {
         Taro.switchTab({
-            url: "../showNews/index"
+            url: "../show-news/index"
         });
     }
 
@@ -29,4 +29,4 @@ class ShowNews extends Component {
     }
 }
 
-export default ShowNews;
+export default ShowNews1;

@@ -7,7 +7,11 @@
 
 // customize
 @import "./utilities";
-@import "page";
+@import "./page";
 
 //placeholder
-@import "placeholder";
+@import "./placeholder";
+
+// 组件
+@import "./components/main";
+

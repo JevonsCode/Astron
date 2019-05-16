@@ -1,3 +1,7 @@
+// import path from 'path'
+// eslint-disable-next-line import/no-commonjs
+const path = require('path');
+
 const config = {
   projectName: 'Astron',
   date: '2019-3-24',
@@ -23,6 +27,9 @@ const config = {
         'transform-object-rest-spread'
       ]
     }
+  },
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src')
   },
   defineConstants: {
   },

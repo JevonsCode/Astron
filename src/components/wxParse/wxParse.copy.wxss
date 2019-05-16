@@ -1,0 +1,208 @@
+
+/**
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *               垂直微信小程序开发交流社区
+ * 
+ * github地址: https://github.com/icindy/wxParse
+ * 
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */
+
+.wxParse{
+    margin: 0 5px!important;
+    font-family: Helvetica,sans-serif!important;
+    font-size: 28rpx!important;
+    color: #666!important;
+    line-height: 1.8!important;
+}
+view{
+    word-break:break-all!important; overflow:auto!important;
+}
+.wxParse-inline{
+    display: inline!important;
+    margin: 0!important;
+    padding: 0!important;
+}
+/*//标题 */
+.wxParse-div{margin: 0!important;padding: 0!important;}
+/*
+.wxParse-h1{ font-size:2em!important; margin: .67em 0!important }
+.wxParse-h2{ font-size:1.5em!important; margin: .75em 0!important }
+.wxParse-h3{ font-size:1.17em!important; margin: .83em 0!important }
+.wxParse-h4{ margin: 1.12em 0!important}
+.wxParse-h5 { font-size:.83em!important; margin: 1.5em 0!important }
+.wxParse-h6{ font-size:.75em!important; margin: 1.67em 0!important }
+*/
+
+.wxParse-h1 {
+  font-size: 18px!important;
+  font-weight: 400!important;
+  margin-bottom: .9em!important;
+}
+.wxParse-h2 {
+  font-size: 16px!important;
+  font-weight: 400!important;
+  margin-bottom: .34em!important;
+}
+.wxParse-h3 {
+  font-weight: 400!important;
+  font-size: 15px!important;
+  margin-bottom: .34em!important;
+}
+.wxParse-h4 {
+  font-weight: 400!important;
+  font-size: 14px!important;
+  margin-bottom: .24em!important;
+}
+.wxParse-h5 {
+  font-weight: 400!important;
+  font-size: 13px!important;
+  margin-bottom: .14em!important;
+}
+.wxParse-h6 {
+  font-weight: 400!important;
+  font-size: 12px!important;
+  margin-bottom: .04em!important;
+}
+
+.wxParse-h1, .wxParse-h2, .wxParse-h3, .wxParse-h4, .wxParse-h5, .wxParse-h6, .wxParse-b, .wxParse-strong  { font-weight: bolder!important }
+
+.wxParse-i,.wxParse-cite,.wxParse-em,.wxParse-var,.wxParse-address{font-style:italic!important}
+.wxParse-pre,.wxParse-tt,.wxParse-code,.wxParse-kbd,.wxParse-samp{font-family:monospace!important}
+.wxParse-pre{white-space:pre!important}
+.wxParse-big{font-size:1.17em!important}
+.wxParse-small,.wxParse-sub,.wxParse-sup{font-size:.83em!important}
+.wxParse-sub{vertical-align:sub!important}
+.wxParse-sup{vertical-align:super!important}
+.wxParse-s,.wxParse-strike,.wxParse-del{text-decoration:line-through!important}
+/*wxparse-自定义个性化的css样式*/
+/*增加video的css样式*/
+.wxParse-strong,.wxParse-s{display: inline!important}
+.wxParse-a{
+    color: deepskyblue!important;
+    word-break:break-all!important;
+    overflow:auto!important;
+}
+
+.wxParse-video{
+    text-align: center!important;
+    margin: 10px 0!important;
+}
+
+.wxParse-video-video{
+    width:100%!important;
+}
+
+.wxParse-img{
+    /*background-color: #efefef;*/
+    overflow: hidden!important;
+}
+
+.wxParse-blockquote {
+    margin: 0!important;
+    padding:10px 0 10px 5px!important;
+    font-family:Courier, Calibri,"宋体"!important;
+    background:#f5f5f5!important;
+    border-left: 3px solid #dbdbdb!important;
+}
+
+.wxParse-code,.wxParse-wxxxcode-style{
+    display: inline!important;
+    background:#f5f5f5!important;
+}
+.wxParse-ul{
+    margin: 20rpx 10rpx!important;
+}
+
+.wxParse-li,.wxParse-li-inner{
+    display: flex!important;
+    align-items: baseline!important;
+    margin: 10rpx 0!important;
+}
+.wxParse-li-text{
+    
+    align-items: center!important;
+    line-height: 20px!important;
+}
+
+.wxParse-li-circle{
+    display: inline-flex;
+    width: 5px!important;
+    height: 5px!important;
+    background-color: #333!important;
+    margin-right: 5px!important;
+}
+
+.wxParse-li-square{
+    display: inline-flex!important;
+    width: 10rpx!important;
+    height: 10rpx!important;
+    background-color: #333!important;
+    margin-right: 5px!important;
+}
+.wxParse-li-ring{
+    display: inline-flex!important;
+    width: 10rpx!important;
+    height: 10rpx!important;
+    border: 2rpx solid #333!important;
+    border-radius: 50%!important;
+    background-color: #fff!important;
+    margin-right: 5px!important;
+}
+
+/*.wxParse-table{
+    width: 100%!important;
+    height: 400px!important;
+}
+.wxParse-thead,.wxParse-tfoot,.wxParse-tr{
+    display: flex!important;
+    flex-direction: row!important;
+}
+.wxParse-th,.wxParse-td{
+    display: flex!important;
+    width: 580px!important;
+    overflow: auto!important;
+}*/
+
+.wxParse-u {
+  text-decoration: underline!important;
+}
+.wxParse-hide{
+    display: none!important;
+}
+.WxEmojiView{
+    align-items: center!important;
+}
+.wxEmoji{
+    width: 16px!important;
+    height:16px!important;
+}
+.wxParse-tr{
+	display: flex!important;
+	border-right:1px solid #e0e0e0!important;
+	border-bottom:1px solid #e0e0e0!important;
+	border-top:1px solid #e0e0e0!important;
+}
+.wxParse-th,
+.wxParse-td{
+	flex:1!important;
+	padding:5px!important;
+	font-size:28rpx!important;
+	border-left:1px solid #e0e0e0!important;
+	word-break: break-all!important;
+}
+.wxParse-td:last{
+	border-top:1px solid #e0e0e0!important;
+}
+.wxParse-th{
+	background:#f0f0f0!important;
+	border-top:1px solid #e0e0e0!important;
+}
+.wxParse-del{
+    display: inline!important;
+}
+.wxParse-figure {
+  overflow: hidden!important;
+}

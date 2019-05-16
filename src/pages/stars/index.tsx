@@ -2,7 +2,7 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import "./stars.scss";
 
-class ShowNews extends Component {
+class ShowNews0 extends Component {
     constructor(preps) {
         super(preps);
     }
@@ -34,4 +34,4 @@ class ShowNews extends Component {
     }
 }
 
-export default ShowNews;
+export default ShowNews0;

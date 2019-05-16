@@ -1,19 +1,29 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text } from "@tarojs/components";
+import { observer, inject } from "@tarojs/mobx";
+import "./index.scss";
 
 interface NewsItem {
     props: {
-        data: newsItem
+        data: newsItem,
+        whichNews: {
+            params: {}
+        }
     };
 }
 
 type newsItem = {
-    id: number,
+    _id: number,
     title: string,
+    author: string,
     content: string,
-    picture: string[]
+    desc: string,
+    date: string,
+    imgCover?: string
 };
 
+@inject("whichNews")
+@observer
 class NewsItem extends Component {
     constructor(props) {
         super(props);
@@ -28,16 +38,37 @@ class NewsItem extends Component {
         const { data: newsItem } = this.props;
 
         return(
-            <View>
-                <Image
-                    src={Array.isArray(newsItem.picture) ? newsItem.picture[0] : newsItem.picture}
-                    mode="aspectFit"
-                />
+            <View className="card-style my-3" onClick={this.toPage.bind(this, newsItem)}>
                 <View>
-                    <View>{newsItem.title}</View>
+                    {
+                        newsItem.imgCover &&
+                        <Image
+                            className="img"
+                            src={newsItem.imgCover}
+                            mode="widthFix"
+                        />
+                    }
+                    <View className="title my-1 mx-2">
+                        <Text>{newsItem.title}</Text>
+                    </View>
+                    <View className="desc my-1 mx-2">
+                        <Text>{newsItem.desc}</Text>
+                    </View>
                 </View>
             </View>
         );
+    }
+
+    /**
+     * @desc 跳转带值 这个传值现在靠mobx 不知道怎么直接给。。。 这个taro文档。。。
+     * @param {object} newsItem newsItem
+     */
+    toPage(newsItem) {
+        const { whichNews } = this.props;
+        whichNews.params = newsItem;
+        Taro.navigateTo({
+            url: "/pages/show-news-item/index"
+        });
     }
 }
 

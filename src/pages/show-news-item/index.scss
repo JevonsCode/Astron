@@ -1,0 +1,30 @@
+.news-item {
+    display: flex;
+    width: 96vw;
+    width: 100%!important;
+    justify-content: center;
+    flex-direction: column;
+
+    .news-header {
+        display: flex;
+        width: 96vw;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .news-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .desc {
+        font-size: 0.8rem;
+        font-weight: 300;
+    }
+}
+
+// 富文本追加样式
+.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}
