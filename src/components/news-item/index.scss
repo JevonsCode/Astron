@@ -1,22 +1,55 @@
 
 .card-style {
     display: flex;
-    width: 96vw;
-    border-radius: 8px;
-    box-shadow: 0 0 0.25rem 0.15rem #ddd;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    width: 100vw;
+    border-bottom: 1px #eee solid;
+    
+    .newsItem-box {
+        width: 94vw;
+        margin: 0 auto;
 
-    .img {
-        width: 96vw;
-        border-radius: 8px 8px 0 0;
-    }
-    .title {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-    .desc {
-        font-size: 0.8rem;
-        font-weight: 300;
+        .img {
+            width: 94vw;
+            border-radius: 1rem;
+        }
+        .title {
+            width: 80vw;
+            font-size: 1.2rem;
+            font-weight: 500;
+            position: relative;
+            word-wrap:break-word
+        }
+        .desc {
+            width: 94vw;
+            font-size: 0.8rem;
+            font-weight: 300;
+            word-wrap:break-word
+        }
+        .tip {
+            color: #BCB3D8;
+            display: inline-block;
+            font-size: 0.5rem;
+            font-weight: 200;
+        }
+
+        .share-icon {
+            position: absolute;
+            top: -10%;
+            right: -2.2rem;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            z-index: 2;
+
+            border: none;
+            outline: none;
+            background: none;
+        }
+        .share-icon::after {
+            border: none;
+        }
     }
 }

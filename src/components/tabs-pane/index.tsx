@@ -28,11 +28,12 @@ export default class TabsPane extends Taro.Component {
         return (
             <AtTabs
                 swipeable={true}
+                animated={true}
                 current={this.state.current}
                 scroll={true}
                 tabList={tabList}
                 onClick={this.handleClick}>
-                <AtTabsPane current={this.state.current} index={0}>
+                <AtTabsPane current={this.state.current} index={0} className={[]}>
                     <View style="font-size:18px;text-align:center;height:100px;"><Image mode="center" src="../../assets/icon/like.png" /></View>
                 </AtTabsPane>
                 <AtTabsPane current={this.state.current} index={1}>

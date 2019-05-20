@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, Text } from "@tarojs/components";
+import { View, Image, Text, Button } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
 import "./index.scss";
 
@@ -19,7 +19,8 @@ type newsItem = {
     content: string,
     desc: string,
     date: string,
-    imgCover?: string
+    imgCover?: string,
+    tip?: string
 };
 
 @inject("whichNews")
@@ -27,6 +28,9 @@ type newsItem = {
 class NewsItem extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isClick: false
+        };
     }
 
     // 样式用全局要加这个
@@ -38,22 +42,40 @@ class NewsItem extends Component {
         const { data: newsItem } = this.props;
 
         return(
-            <View className="card-style my-3" onClick={this.toPage.bind(this, newsItem)}>
-                <View>
+            <View className="card-style mt-3 pb-3" onClick={this.toPage.bind(this, newsItem)}>
+                <View className="newsItem-box">
                     {
                         newsItem.imgCover &&
                         <Image
                             className="img"
                             src={newsItem.imgCover}
                             mode="widthFix"
+                            lazyLoad={true}
                         />
                     }
-                    <View className="title my-1 mx-2">
+
+                    {
+                        newsItem.imgCover &&
+                        <Text className="tip mx-2">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
+                    }
+
+                    <View className="title my-1 ml-2 mr-5">
                         <Text>{newsItem.title}</Text>
+                        <Button
+                            className="at-icon at-icon-share share-icon"
+                            onClick={this.share}
+                            open-type="share" />
                     </View>
+
+                    {
+                        !newsItem.imgCover &&
+                        <Text className="tip mx-2">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
+                    }
+
                     <View className="desc my-1 mx-2">
                         <Text>{newsItem.desc}</Text>
                     </View>
+
                 </View>
             </View>
         );
@@ -64,12 +86,38 @@ class NewsItem extends Component {
      * @param {object} newsItem newsItem
      */
     toPage(newsItem) {
+        if(this.state.isClick === true) return;
+
+        console.log("aaaaaa", this.state.isClick);
         const { whichNews } = this.props;
         whichNews.params = newsItem;
         Taro.navigateTo({
             url: "/pages/show-news-item/index"
         });
     }
+
+    /**
+     * @desc 分享
+     */
+    share() {
+        // 防止重复 click
+        // this.setState({
+        this.state.isClick = true;
+        // });
+        setTimeout(() => {
+            this.state.isClick = false;
+        }, 300);
+
+        console.log("123123", this.state.isClick);
+    }
+
+    // onShareAppMessage() {
+    //     return {
+    //         title: "弹出分享时显示的分享标题",
+    //         desc: "分享页面的内容",
+    //         // path: "/page/user?id=123" // 路径，传递参数到指定页面。
+    //     };
+    // }
 }
 
 export default NewsItem;

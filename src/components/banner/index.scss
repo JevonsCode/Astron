@@ -1,0 +1,39 @@
+.banner-style {
+
+    display: flex;
+    width: 94vw;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    .video {
+        width: 94vw;
+        height: 54vh;
+        border-radius: 1rem;
+    }
+
+    .text-view {
+
+        position: absolute;
+        color: #FFF;
+        z-index: 1;
+        bottom: 4%;
+        left: 5%;
+        right: 5%;
+        
+        .title {
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .date {
+            display: inline-block;
+            font-size: .65rem;
+            font-weight: 200;
+        }
+    }
+
+}

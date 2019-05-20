@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
+import { View, Text, Image } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
 import "./index.scss";
 
@@ -16,16 +16,25 @@ interface IProps {
             content: string,
             desc: string,
             date: string,
-            imgCover?: string
+            imgCover: string
         }
     };
 }
+
+type IState = {
+    collectSrc: string
+};
 
 @inject("whichNews")
 @observer
 class Article extends Component<IProps> {
     constructor() {
         super();
+        this.collect = this.collect.bind(this);
+
+        this.state = {
+            collectSrc: "../../assets/icon/heart.png"
+        };
     }
 
     config = {
@@ -53,18 +62,63 @@ class Article extends Component<IProps> {
         console.log(news);
         return (
             <View className="news-item">
-                <View className="news-header">
-                    <Text className="news-title">{news.title}</Text>
-                    <Text className="news-auther">{news.author}</Text>
-                    <Text className="news-date">{news.date}</Text>
-                </View>
 
-                <View className="news-content">
-                    <import src="../../components/wxParse/wxParse.wxml" />
-                    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+                {
+                    news.imgCover &&
+                    <View className="imgCover">
+                        <Image
+                        className="imgCover-img"
+                        src={news.imgCover}
+                        mode="widthFix" />
+                        <View className="placeholder" />
+                    </View>
+                }
+
+                <View className="at-article">
+                    <View className="news-header">
+                        <Text className="title">{news.title}</Text>
+                        <Image
+                        className="collect"
+                        src={this.state.collectSrc}
+                        onClick={this.collect} />
+                        <View className="info">
+                            <Text className="at-article__info info-item">
+                                {
+                                    news.date &&
+                                    news.date.includes(" ")
+                                    ?
+                                    news.date.split(" ")[0]
+                                    :
+                                    news.date
+                                }
+                            </Text>
+                            <Text className="at-article__info info-item">
+                                {news.author}
+                            </Text>
+                        </View>
+                    </View>
+
+                    <Text className="details">详情</Text>
+
+                    <View className="at-article__content content">
+                        <import src="../../components/wxParse/wxParse.wxml" />
+                        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+                    </View>
                 </View>
             </View>
         );
+    }
+
+    collect() {
+        if(this.state.collectSrc === "../../assets/icon/heart.png") {
+            this.setState({
+                collectSrc: "../../assets/icon/hearting.png"
+            });
+        } else {
+            this.setState({
+                collectSrc: "../../assets/icon/heart.png"
+            });
+        }
     }
 }
 

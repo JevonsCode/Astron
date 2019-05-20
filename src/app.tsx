@@ -28,7 +28,7 @@ class App extends Component {
     config: Config = {
         pages: [
             "pages/index/index",
-            "pages/show-news/index",
+            "pages/astro/index",
             "pages/user/index",
             "pages/stars/index",
             // other pages
@@ -39,8 +39,9 @@ class App extends Component {
             navigationBarBackgroundColor: "#fff",
             navigationBarTitleText: "WeChat",
             navigationBarTextStyle: "black",
-            enablePullDownRefresh: true,
-            onReachBottomDistance:50
+            // 下拉刷新
+            // enablePullDownRefresh: true,
+            // onReachBottomDistance:50
         },
         tabBar: {
             color: "#666",
@@ -49,27 +50,27 @@ class App extends Component {
             list: [
                 {
                     pagePath: "pages/index/index",
-                    iconPath: "assets/icon/like.png",
-                    selectedIconPath: "assets/icon/like.png",
+                    iconPath: "assets/icon/a1.png",
+                    selectedIconPath: "assets/icon/a2.png",
                     text: "首页"
                 },
                 {
-                    pagePath: "pages/show-news/index",
-                    iconPath: "assets/icon/like.png",
-                    selectedIconPath: "assets/icon/like.png",
-                    text: "show"
+                    pagePath: "pages/stars/index",
+                    iconPath: "assets/icon/b1.png",
+                    selectedIconPath: "assets/icon/b2.png",
+                    text: "行星"
+                },
+                {
+                    pagePath: "pages/astro/index",
+                    iconPath: "assets/icon/c1.png",
+                    selectedIconPath: "assets/icon/c2.png",
+                    text: "航空"
                 },
                 {
                     pagePath: "pages/user/index",
-                    iconPath: "assets/icon/like.png",
-                    selectedIconPath: "assets/icon/like.png",
-                    text: "3333"
-                },
-                {
-                    pagePath: "pages/stars/index",
-                    iconPath: "assets/icon/like.png",
-                    selectedIconPath: "assets/icon/like.png",
-                    text: "stars"
+                    iconPath: "assets/icon/d1.png",
+                    selectedIconPath: "assets/icon/d2.png",
+                    text: "我的"
                 }
             ]
         }

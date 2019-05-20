@@ -14,7 +14,7 @@ class ShowNews1 extends Component {
 
     switchTab() {
         Taro.switchTab({
-            url: "../show-news/index"
+            url: "../stars/index"
         });
     }
 

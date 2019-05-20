@@ -1,8 +1,11 @@
 import { ComponentType } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View } from "@tarojs/components";
+import { View, Text, ScrollView } from "@tarojs/components";
 // import { observer, inject } from "@tarojs/mobx";
 import "@tarojs/async-await";
+import Banner from "../../components/banner";
+import SliderBanner from "../../components/slider-banner";
+import BlockTitle from "../../components/block-title";
 import NewsItem from "../../components/news-item";
 import Placeholder from "@/components/placeholder";
 import { obtainNews } from "@/api";
@@ -32,7 +35,9 @@ interface Index {
 // @observer
 class Index extends Component {
     config: Config = {
-        navigationBarTitleText: "首页"
+        navigationBarTitleText: "ASTRON",
+        // 下拉刷新
+        enablePullDownRefresh: true
     };
 
     state:StateProps = {
@@ -79,13 +84,19 @@ class Index extends Component {
 
             <Placeholder className="m-3" quantity="10" isShow={placeholder} />
 
-            <View>
+            <Banner />
+
+            <BlockTitle title="Hot News" />
+
+            <SliderBanner />
+
+            <ScrollView className="scroll-view-style m-3">
                 {
                     news.map(newsItem =>
                         <NewsItem data={newsItem} key={newsItem.id} />
                     )
                 }
-            </View>
+            </ScrollView>
         </View>
         );
     }

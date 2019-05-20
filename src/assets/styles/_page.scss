@@ -1,4 +1,7 @@
 .page {
+    display: flex;
+    // flex-direction: row;
+    
     &-demo {
         font-weight: 200;
         text-align: center;
@@ -11,11 +14,18 @@
         font-weight: 200;
         display: flex;
     }
+    // 页面主样式
     &-index {
         font-weight: 200;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .scroll-view-style {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
