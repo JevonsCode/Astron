@@ -9,7 +9,7 @@
 ![Progress](http://progressed.io/bar/90)
 
 - [ ] 资料&图像展示页 
-![Progress](http://progressed.io/bar/0)
+![Progress](http://progressed.io/bar/40)
 
 - [ ] 历史展示页 
 ![Progress](http://progressed.io/bar/0)
@@ -22,18 +22,18 @@
 > Widget TODO
 
 - [ ] 富文本返回文本 css
-![Progress](http://progressed.io/bar/10)
+![Progress](http://progressed.io/bar/30)
 
 - [ ] 下拉加载 & 接口定义
 ![Progress](http://progressed.io/bar/0)
 
 - [ ] 滚动头部标签组件
-![Progress](http://progressed.io/bar/0)
+![Progress](http://progressed.io/bar/50)
 
 - [ ] 轮播图组件
-![Progress](http://progressed.io/bar/0)
+![Progress](http://progressed.io/bar/100)
 
-- [ ] other
+- [ ] 行星数据库
 ![Progress](http://progressed.io/bar/0)
 
 > 参考
