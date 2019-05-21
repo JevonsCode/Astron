@@ -27,7 +27,7 @@ type IState = {
 
 @inject("whichNews")
 @observer
-class Article extends Component<IProps> {
+class Article extends Component<IProps, IState> {
     constructor() {
         super();
         this.collect = this.collect.bind(this);

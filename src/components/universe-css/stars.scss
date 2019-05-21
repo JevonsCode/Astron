@@ -18,32 +18,46 @@
 
 $year-in-second : 30; // 1 Earth year = 30 sec
 
-@function revolution($pl-year-in-days){
-  @return $pl-year-in-days * $year-in-second / 365.2563 + s  //Earth reference
+@function revolution($pl-year-in-days) {
+  @return $pl-year-in-days * $year-in-second / 365.2563+s //Earth reference
 }
-@function alphaRandom(){
+
+@function alphaRandom() {
   @return random(1000)*.001;
 }
-@function stars($s, $max-area, $min-area : 0, $star-size : 0){
-  $stars : #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, alphaRandom()); 
-  @for $i from 1 to $s{
+
+@function stars($s, $max-area, $min-area : 0, $star-size : 0) {
+  $stars : #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255, 255, 255, alphaRandom());
+
+  @for $i from 1 to $s {
     $stars: '#{$stars} , #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, #{alphaRandom()})'
   }
+
   @return unquote($stars);
 }
 
 $sun: 40px;
-$mercury-orb : 70px; $mercury-pl: 4px; 
-$venus-orb : 100px; $venus-pl: 8px; 
-$earth-orb : 145px; $earth-pl: 6px; 
-$mars-orb : 190px; $mars-pl: 6px;
-$jupiter-orb : 340px; $jupiter-pl: 18px; 
-$saturn-orb : 440px; $saturn-pl: 12px;
-$uranus-orb : 520px; $uranus-pl: 10px;
-$neptune-orb : 630px; $neptune-pl: 10px;
-$pluto-orb : 780px; $pluto-pl: 3px;
+$mercury-orb : 70px;
+$mercury-pl: 4px;
+$venus-orb : 100px;
+$venus-pl: 8px;
+$earth-orb : 145px;
+$earth-pl: 6px;
+$mars-orb : 190px;
+$mars-pl: 6px;
+$jupiter-orb : 340px;
+$jupiter-pl: 18px;
+$saturn-orb : 440px;
+$saturn-pl: 12px;
+$uranus-orb : 520px;
+$uranus-pl: 10px;
+$neptune-orb : 630px;
+$neptune-pl: 10px;
+$pluto-orb : 780px;
+$pluto-pl: 3px;
 
-$asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
+$asteroids-belt-orb : 300px;
+$asteroids-belt-pl: 210px;
 
 
 // * {
@@ -51,79 +65,79 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
 //   margin:0;
 //   box-sizing:border-box;
 // }
-.wwww {
-  width: 1000px;
-  height: 1000px;
+.universe-box, .universe-bg {
+  width: 100vw;
+  height: 100vh;
 }
 
-.bodyw {
-  font:normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
+// 背景
+.universe-bg {
+  font: normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  color:#fff;
+  color: #fff;
   background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
-  background-attachment:fixed;
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.solar-syst{
-  &:after{
-    content:"";
-    position:absolute;
-    height:2px;
-    width:2px;
-    top:-2px;
-    background:white;
+.solar-syst {
+  &:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 2px;
+    top: -2px;
+    background: white;
     box-shadow: stars(500, 1800);
-    border-radius:100px;
-    padding:0;
-  margin:0;
-  box-sizing:border-box;
+    border-radius: 100px;
+    box-sizing: border-box;
   }
-  padding:0;
-  margin:0;
+
   box-sizing:border-box;
   margin:0 auto;
   width:100%;
   height:100%;
   position:relative;
-  div{padding:0;
-    margin:0;
-    box-sizing:border-box;
-    border-radius:1000px;
-    top:50%;
-    left:50%;
-    position:absolute;
-    z-index:999;
-    &:not(.sun){padding:0;
-      margin:0;
-      box-sizing:border-box;
+
+  .sun,.mercury,.venus,.earth,.mars,.jupiter,.saturn,.uranus,.neptune,.pluto,.asteroids-belt {
+
+    box-sizing: border-box;
+    border-radius: 1000px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    z-index: 999;
+
+    &:not(.sun) {
+
+      box-sizing: border-box;
       border: 1px solid rgba(102, 166, 229, 0.12);
-      &:before{padding:0;
-        margin:0;
-        box-sizing:border-box;
-        left:50%;
-        border-radius:100px;
-        content:"";
-        position:absolute;
+
+      &:before {
+
+        box-sizing: border-box;
+        left: 50%;
+        border-radius: 100px;
+        content: "";
+        position: absolute;
       }
     }
-    &:not(.asteroids-belt){padding:0;
-      margin:0;
-      box-sizing:border-box;
-      &:before{padding:0;
-        margin:0;
-        box-sizing:border-box;
+
+    &:not(.asteroids-belt) {
+
+      box-sizing: border-box;
+
+      &:before {
+        box-sizing: border-box;
         box-shadow: inset 0 6px 0 -2px rgba(0, 0, 0, 0.25);
       }
     }
   }
 }
 
-.sun{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.sun{
   background:radial-gradient(ellipse at center, #ffd000 1%,#f9b700 39%,#f9b700 39%,#e06317 100%);
   height:$sun;
   width:$sun;
@@ -136,17 +150,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   box-shadow: 0 0 10px 2px rgba(255, 107, 0, 0.4), 0 0 22px 11px rgba(255, 203, 0, 0.13);
 }
 
-.mercury{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.mercury{
   height: $mercury-orb;
   width: $mercury-orb;
   margin-top: -$mercury-orb / 2;
   margin-left: -$mercury-orb / 2;
   animation: orb revolution(87.5) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$mercury-pl;
     width:$mercury-pl;
     background: #9f5e26;
@@ -155,17 +165,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.venus{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.venus{
   height: $venus-orb;
   width: $venus-orb;
   margin-top: -$venus-orb / 2;
   margin-left: -$venus-orb / 2;
   animation: orb revolution(224.7) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$venus-pl;
     width:$venus-pl;
     background:#BEB768;
@@ -174,26 +180,20 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.earth{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.earth{
   height: $earth-orb;
   width: $earth-orb;
   margin-top: -$earth-orb / 2;
   margin-left: -$earth-orb / 2;
   animation: orb revolution(365.2563) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$earth-pl;
     width:$earth-pl;
     background:#11abe9;
     margin-top: -$earth-pl / 2;
     margin-left: -$earth-pl / 2;
   }
-  &:after{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:after{
     position: absolute;
     content: "";
     height: 18px;
@@ -207,17 +207,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
     animation: orb revolution(27.3216) linear infinite;
   }
 }
-.mars{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.mars{
   height: $mars-orb;
   width: $mars-orb;
   margin-top: -$mars-orb / 2;
   margin-left: -$mars-orb / 2;
   animation: orb revolution(687) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$mars-pl;
     width:$mars-pl;
     background:#cf3921;
@@ -226,17 +222,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.jupiter{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.jupiter{
   height: $jupiter-orb;
   width: $jupiter-orb;
   margin-top: -$jupiter-orb / 2;
   margin-left: -$jupiter-orb / 2;
   animation: orb revolution(4331) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$jupiter-pl;
     width:$jupiter-pl;
     background:#c76e2a;
@@ -244,26 +236,20 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
     margin-left: -$jupiter-pl / 2;
   }
 }
-.saturn{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.saturn{
   height: $saturn-orb;
   width: $saturn-orb;
   margin-top: -$saturn-orb / 2;
   margin-left: -$saturn-orb / 2;
   animation: orb revolution(10747) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$saturn-pl;
     width:$saturn-pl;
     background:#e7c194;
     margin-top: -$saturn-pl / 2;
     margin-left: -$saturn-pl / 2;
   }
-  &:after{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:after{
     position: absolute;
     content: "";
     height: 2.34%; 
@@ -281,17 +267,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.uranus{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.uranus{
   height: $uranus-orb;
   width: $uranus-orb;
   margin-top: -$uranus-orb / 2;
   margin-left: -$uranus-orb / 2;
   animation: orb revolution(30589) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$uranus-pl;
     width:$uranus-pl;
     background:#b5e3e3;
@@ -300,17 +282,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.neptune{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.neptune{
   height: $neptune-orb;
   width: $neptune-orb;
   margin-top: -$neptune-orb / 2;
   margin-left: -$neptune-orb / 2;
   animation: orb revolution(59802) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$neptune-pl;
     width:$neptune-pl;
     background:#175e9e;
@@ -319,9 +297,7 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.asteroids-belt{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.asteroids-belt{
   opacity:.7;
   border-color: transparent !important;
   height: $asteroids-belt-orb;
@@ -330,9 +306,7 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   margin-left: -$asteroids-belt-orb / 2;
   animation: orb revolution(2191) linear infinite;
   overflow:hidden;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     top:50%;
     height:$asteroids-belt-pl;
     width:$asteroids-belt-pl;
@@ -344,17 +318,13 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.pluto{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.pluto{
   height: $pluto-orb;
   width: $pluto-orb;
   margin-top: -$pluto-orb / 2 + -60;
   margin-left: -$pluto-orb / 2 + 70;
   animation: orb revolution(90580) linear infinite;
-  &:before{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  &:before{
     height:$pluto-pl;
     width:$pluto-pl;
     background:#fff;
@@ -363,27 +333,19 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   }
 }
 
-.hide{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.hide{
   display:none;
 }
-.links{padding:0;
-  margin:0;
-  box-sizing:border-box;
+.links{
   margin-top:5px !important;
   font-size:1em !important;
 }
 
 @keyframes orb{
-  from {padding:0;
-    margin:0;
-    box-sizing:border-box;
+  from {
     transform:rotate(0deg)
   }
-  to{padding:0;
-    margin:0;
-    box-sizing:border-box;
+  to{
     transform:rotate(-360deg)
   }
 }

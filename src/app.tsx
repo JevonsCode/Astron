@@ -27,17 +27,18 @@ class App extends Component {
  */
     config: Config = {
         pages: [
+            "pages/stars/index",
             "pages/index/index",
+
             "pages/astro/index",
             "pages/user/index",
-            "pages/stars/index",
             // other pages
             "pages/show-news-item/index"
         ],
         window: {
             backgroundTextStyle: "light",
             navigationBarBackgroundColor: "#fff",
-            navigationBarTitleText: "WeChat",
+            navigationBarTitleText: "ASTRON",
             navigationBarTextStyle: "black",
             // 下拉刷新
             // enablePullDownRefresh: true,
