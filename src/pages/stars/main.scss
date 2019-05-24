@@ -9,7 +9,7 @@
 
 .tab-header-box {
     width: 100vw;
-    height: 61vh;
+    height: 66vh;
     // background: url("https://qiniu.jevons.xyz/hp/footer_bg.png") no-repeat;
     // background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background: rgb(3, 11, 26);
@@ -64,10 +64,21 @@
             font-weight: 500;
         }
         .desc {
-            font-size: .6rem;
+            font-size: .7rem;
             color: rgba(255, 255, 255, 0.664);
             font-weight: 200;
         }
+    }
+
+    // colorful egg? bonus scene
+    .universe-box {
+        position: absolute;
+        top: .6rem;
+        right: .8rem;
+        z-index: 2;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url("data:image/svg+xml;base64,PHN2ZyBpZD0ib3JyZXJ5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAzMiAzMiIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPGNpcmNsZSBjbGFzcz0ic3VuIiBjeD0iMTYiIGN5PSIxNiIgcj0iMy4yIiAvPgogICAgPGcgY2xhc3M9InRoaXJkIj4KICAgICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9Ii45Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjI4LjIiIGN5PSIyMy4xIiByPSIxLjciLz4KICAgIDwvZz4KICAgIDxnIGNsYXNzPSJzZWNvbmQiPgogICAgICA8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMC41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIuOSIvPgogICAgICA8Y2lyY2xlIGN4PSIxMC42IiBjeT0iNy4yIiByPSIxLjciIC8+CiAgICA8L2c+CiAgICA8ZyBjbGFzcz0iZmlyc3QiPgogICAgICA8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI2LjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9Ii45IiAvPgogICAgICA8Y2lyY2xlIGN4PSIxMS43IiBjeT0iMjEiIHI9IjEuNyIgLz4KICAgIDwvZz4KICAgIAogIDxzdHlsZT4KICAgIAogICNvcnJlcnkgewogICAgdHJhbnNmb3JtOiByb3RhdGVZKDMwZGVnKSByb3RhdGVYKDUwZGVnKSByb3RhdGVaKDBkZWcpOwogICAgdHJhbnNmb3JtLW9yaWdpbjogNTAlIDUwJTsKICAgIGZpbGw6ICNmZmY7CiAgfQogIAogIC5maXJzdCwgLnNlY29uZCwgLnRoaXJkIHsKICAgIGFuaW1hdGlvbi1uYW1lOiBzcGluOwogICAgYW5pbWF0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyOwogICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7CiAgICBhbmltYXRpb24tcGxheS1zdGF0ZTogcnVubmluZzsKICAgIHRyYW5zaXRpb24tcHJvcGVydHk6IG9wYWNpdHk7CiAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAxczsKICAgIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBsaW5lYXI7CiAgICB0cmFuc2Zvcm0tb3JpZ2luOiA1MCUgNTAlOwogIH0KICAKICAudGhpcmQgewogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAxMHM7CiAgfQogIC5zZWNvbmQgewogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiA2LjJzOwogIH0KICAuZmlyc3QgewogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAyLjRzOwogIH0KCiAgQGtleWZyYW1lcyBzcGluIHsKICAgIGZyb20gewogICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTsKICAgIH0KICAgIHRvIHsKICAgICAgdHJhbnNmb3JtOiByb3RhdGUoLTM2MGRlZyk7CiAgICB9CiAgfQoKPC9zdHlsZT4KCjwvc3ZnPg==")
     }
 
     .star-box {
@@ -77,7 +88,7 @@
         // left: 0;
         // right: 0;
         // background: #0f0;
-
+        margin-top: -2rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -87,6 +98,7 @@
         }
     }
 
+    // 距离地球...那个描述
     .desc-box {
         position: absolute;
         z-index: 2;
@@ -95,25 +107,26 @@
         display: flex;
         width: 100vw;
         justify-content: space-between;
-        height: 3.6rem;
+
+        height: 4.6rem;
 
         .desc-item {
             display: flex;
             justify-content: space-around;
-            width: 33%;
+            width: 33.333%;
             height: 2.5rem;
             align-items: center;
             flex-direction: column;
 
             .desc {
                 display: block;
-                font-size: .7rem;
+                font-size: .8rem;
                 color: #C08556
             }
 
             .name {
                 display: block;
-                font-size: .7rem;
+                font-size: .8rem;
                 color: #FFF;
             }
         }
@@ -129,18 +142,18 @@
         position: absolute;
         top: -.8rem;
 
-        background: rgba(255, 255, 255, 0.349);
+        background: #FFF;
         width: 100vw;
         border-radius: .8rem .8rem 0 0;
-        height: 2rem;
+        height: 2.2rem;
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
 
         .tab-content-header-item {
             margin: 0 2.1rem;
-            font-size: .7rem;
-            font-weight: 600;
+            font-size: .82rem;
+            font-weight: 700;
             padding: 0 .2rem .4rem;
             position: relative;
 
@@ -162,21 +175,66 @@
     }
     .tab-content-details, .tab-content-parameter {
         width: 100vw;
-        height: 100vh;
-        padding-top: 2rem;
-        border: 2px #0c0 solid;
+        padding-top: 2.5rem;
+        padding-bottom: 1.3rem;
     }
 
     .tab-content-details {
-        background: rgb(243, 17, 17);
+        .article-title {
+            display: block;
+            width: 92vw;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
     }
 
     .tab-content-parameter {
-        background: rgb(248, 213, 11);
+    }
+}
+
+.details-box {
+    width: 96vw;
+    margin: 0 auto;
+
+    .details-article {
+        white-space: initial;
+    }
+}
+
+.parameter-box {
+    width: 90vw;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+
+    .parameter-line {
+        display: flex;
+        justify-content: space-between;
+        padding: .7rem 0;
+        font-size: .78rem;
+        color: #343434;
+        font-weight: 600;
+        border-bottom: 1px rgba(238, 238, 238, 0.644) solid;
+
+        .key, .value {
+            width: 50%;
+        }
+        .key {
+            padding-left: 1rem;
+        }
+        .value {
+            padding-left: 1rem;
+        }
     }
 }
 
 // 隐藏滚动条
 .at-tabs__header::-webkit-scrollbar {
     display: none
+}
+.at-tabs__header {
+    background: #040b1b;
+}
+.at-tabs__item {
+    color: rgba(255, 255, 255, 0.726);
 }

@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text, Button } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
-import "./index.scss";
+import "./main.scss";
 
 interface NewsItem {
     props: {
@@ -92,7 +92,7 @@ class NewsItem extends Component {
         const { whichNews } = this.props;
         whichNews.params = newsItem;
         Taro.navigateTo({
-            url: "/pages/show-news-item/index"
+            url: "/pages/article-item/index"
         });
     }
 

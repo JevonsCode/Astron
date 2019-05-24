@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text, Swiper, SwiperItem, Video, ScrollView } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
-import "./index.scss";
+import "./main.scss";
 import { randomBytes } from "crypto";
 
 interface SliderBanner {
@@ -102,7 +102,7 @@ class SliderBanner extends Component {
         const { whichNews } = this.props;
         whichNews.params = newsItem;
         Taro.navigateTo({
-            url: "/pages/show-news-item/index"
+            url: "/pages/article-item/index"
         });
     }
 }

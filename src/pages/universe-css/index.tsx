@@ -7,6 +7,13 @@ class UniverseCss extends Component {
         super(preps);
     }
 
+    config:object = {
+        navigationBarTitleText: "ASTRON",
+        backgroundTextStyle: "light",
+        navigationBarBackgroundColor: "#0c1016",
+        navigationBarTextStyle: "white"
+    };
+
     render() {
         return(
                 <View className="universe-box">

@@ -27,13 +27,15 @@ class App extends Component {
  */
     config: Config = {
         pages: [
-            "pages/stars/index",
-            "pages/index/index",
-
             "pages/astro/index",
+            "pages/index/index",
+            "pages/stars/index",
+
             "pages/user/index",
             // other pages
-            "pages/show-news-item/index"
+            "pages/article-item/index",
+            "pages/universe-css/index"
+
         ],
         window: {
             backgroundTextStyle: "light",

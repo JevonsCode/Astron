@@ -1,6 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text, Swiper, SwiperItem, Video } from "@tarojs/components";
-import "./index.scss";
+import "./main.scss";
 
 type IBlockTitle = {
     title: string
@@ -35,7 +35,7 @@ class BlockTitle extends Component <IBlockTitle> {
         // const { whichNews } = this.props;
         // whichNews.params = newsItem;
         // Taro.navigateTo({
-        //     url: "/pages/show-news-item/index"
+        //     url: "/pages/article-item/index"
         // });
     }
 }

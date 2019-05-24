@@ -16,6 +16,7 @@ type StateProps = {
     news:newsItem[];
     placeholder: boolean;
 };
+
 type newsItem = {
     _id: number,
     id: number,
@@ -37,7 +38,7 @@ class Index extends Component {
     config: Config = {
         navigationBarTitleText: "ASTRON",
         // 下拉刷新
-        enablePullDownRefresh: true
+        // enablePullDownRefresh: true
     };
 
     state:StateProps = {

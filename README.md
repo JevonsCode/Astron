@@ -9,7 +9,7 @@
 ![Progress](http://progressed.io/bar/90)
 
 - [ ] 资料&图像展示页 
-![Progress](http://progressed.io/bar/40)
+![Progress](http://progressed.io/bar/99)
 
 - [ ] 历史展示页 
 ![Progress](http://progressed.io/bar/0)
@@ -30,7 +30,7 @@
 - [ ] 滚动头部标签组件
 ![Progress](http://progressed.io/bar/50)
 
-- [ ] 轮播图组件
+- [x] 轮播图组件
 ![Progress](http://progressed.io/bar/100)
 
 - [ ] 行星数据库
