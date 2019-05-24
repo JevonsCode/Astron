@@ -9,7 +9,7 @@
 
 .tab-header-box {
     width: 100vw;
-    height: 66vh;
+    height: 68vh;
     // background: url("https://qiniu.jevons.xyz/hp/footer_bg.png") no-repeat;
     // background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background: rgb(3, 11, 26);
@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding-top: 3rem; 
 
     // bulingbuling
     .stars-bulingbuling {
@@ -54,7 +55,7 @@
 
     .text-box {
         position: absolute;
-        top: .8rem;
+        top: 3.8rem;
         left: .8rem;
         z-index: 2;
 
@@ -73,7 +74,7 @@
     // colorful egg? bonus scene
     .universe-box {
         position: absolute;
-        top: .6rem;
+        top: 3.6rem;
         right: .8rem;
         z-index: 2;
         width: 1.6rem;
@@ -229,12 +230,29 @@
 }
 
 // 隐藏滚动条
-.at-tabs__header::-webkit-scrollbar {
-    display: none
+.at-tabs--scroll .at-tabs__header::-webkit-scrollbar {
+    display: none !important
 }
 .at-tabs__header {
-    background: #040b1b;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    background: rgba(4,11,27, .5);
 }
 .at-tabs__item {
     color: rgba(255, 255, 255, 0.726);
+}
+.at-tabs__item-underline {
+    background: #BD8355;
+    width: .5rem;
+    height: .5rem;
+    z-index: 6;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border-radius: .5rem;
+}
+.at-tabs__item--active {
+    color: #BD8355;
+    font-weight: 800;
 }

@@ -4,6 +4,7 @@ import Index from "./pages/index";
 
 // import counterStore from "./store/counter";
 import whichNews from "./store/news";
+import userInfo from "./store/userInfo";
 
 import "./assets/styles/app.scss";
 
@@ -14,7 +15,8 @@ import "./assets/styles/app.scss";
 // }
 
 const store = {
-    whichNews
+    whichNews,
+    userInfo
 };
 
 class App extends Component {
@@ -27,11 +29,11 @@ class App extends Component {
  */
     config: Config = {
         pages: [
-            "pages/astro/index",
+            "pages/user/index",
+
             "pages/index/index",
             "pages/stars/index",
-
-            "pages/user/index",
+            "pages/astro/index",
             // other pages
             "pages/article-item/index",
             "pages/universe-css/index"

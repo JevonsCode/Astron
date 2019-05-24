@@ -82,29 +82,43 @@ class Stars extends Component<ITabs, IState> {
         });
     }
 
+    /**
+     * 排序
+     * @param property 按照的值
+     */
+    compare(property:string|number){
+        return function(a,b){
+            const value1 = a[property];
+            const value2 = b[property];
+            return value1 - value2;
+        };
+    }
+
     render () {
-        this.state.stars.forEach((star:IStar) => {
+        const tabList=this.state.stars.sort(this.compare("sort"));
+
+        console.log("tabList",tabList);
+        tabList.forEach((star:IStar) => {
             star.title = star.name;
         });
         const tabList2=[
             { title: "详情" },
             { title: "参数特征" }
         ];
-        console.log("====> ", this.state.stars);
         return (
             <View className="scroll-view-style">
                 <AtTabs
                     className=""
-                    swipeable={false}
-                    animated={true}
+                    swipeable={true}
+                    animated={false}
                     current={this.state.current}
                     scroll={true}
-                    tabList={this.state.stars}
+                    tabList={tabList}
                     onClick={this.handleClick}>
 
                     {
                         this.state.stars&&this.state.stars!==[]&&this.state.stars.map((star:IStar) =>
-                            <AtTabsPane key={star._id}current={this.state.current} index={this.state.stars.indexOf(star)}>
+                            <AtTabsPane key={star._id} current={this.state.current} index={tabList.indexOf(star)}>
                                 <View className="tab-item-box">
                                     {/* 头部 */}
                                     <View className="tab-header-box">

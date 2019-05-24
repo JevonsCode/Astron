@@ -14,3 +14,10 @@ export function obtainNews() {
 export function obtainStars() {
     return RequestGet("astron_stars_data");
 }
+
+/**
+ * WeChat 登录
+ */
+export function weChat_login(data:object) {
+    return RequestGet("astron_login_wx", data);
+}

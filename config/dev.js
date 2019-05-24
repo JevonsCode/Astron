@@ -4,7 +4,7 @@ module.exports = {
     NODE_ENV: '"development"'
   },
   defineConstants: {
-    API_WS: '"https://astron.db.jevons.xyz/mock"'
+    API_WS: '"localhost:727"'
   },
   weapp: {},
   h5: {}
