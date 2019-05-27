@@ -36,3 +36,11 @@ export function collections_add(data:object) {
     return RequestGetTest("astron/astron_collections_add", data);
 }
 
+/**
+ * @param collections
+ * @return 对应 news
+ */
+export function collections_which(data:object) {
+    return RequestGetTest("astron/astron_collections_which", data);
+}
+

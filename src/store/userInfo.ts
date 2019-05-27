@@ -1,6 +1,6 @@
 import { observable, action } from "mobx";
 import Taro from "@tarojs/taro";
-import { weChat_login } from "@/api";
+import { weChat_login, collections_find } from "@/api";
 // const userInfo = observable({
 //     info: {},
 //     _id: "",
@@ -11,11 +11,6 @@ class userInfo {
     @observable collections = [];
     @observable info = {};
     @observable _id = "";
-
-    @action.bound changeInfo() {
-        console.log(this.info,this.collections);
-    }
-
 
     @action.bound getStorageInfo() {
         Taro.getStorage({ key: "userInfo" }).then((res) => {
@@ -41,6 +36,25 @@ class userInfo {
                 this._id = res.data;
                 console.log("id信息有的 是：",res.data);
                 console.log("有ID信息 给mobx了：",this._id);
+
+                // 进入首页就查看一下他的收藏列表
+                const this_ = this;
+                console.log("1-", Array.isArray(this_.collections.slice()));
+                collections_find({ _id: res.data }).then((colls) => {
+                    console.log("收藏", colls.data.msg.collections, Array.isArray(colls.data.msg.collections));
+                    if(colls.data.code === "1000") {
+                        if(typeof(colls.data.msg.collections)==="string") {
+                            colls.data.msg.collections = JSON.parse(colls.data.msg.collections);
+                        }
+                        console.log("收藏2", colls.data.msg.collections, Array.isArray(colls.data.msg.collections));
+                        this_.collections = colls.data.msg.collections; // mobx 中有收藏列表了
+                        console.log("收藏的内容mobx & 请求",this_.collections,"=",colls.data.msg.collections);
+
+                        // 根据收藏列表把文章详情请求回来
+                    } else {
+                        console.log("返回不是1000，记着写个提示");
+                    }
+                });
             } else {
                 console.log("id信息长度不够");
             }

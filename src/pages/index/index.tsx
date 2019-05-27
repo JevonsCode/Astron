@@ -80,28 +80,15 @@ class Index extends Component {
             }
         });
 
-        // 首页获取登录态信息等
         console.log("首页是否有信息呢","avatarUrl" in this.props.userInfo.info);
         console.log("首页是否有id信息呢",!!this.props.userInfo._id);
+
+        // 首页获取登录态信息等
         !("avatarUrl" in this.props.userInfo.info) &&
         this.props.userInfo.getStorageInfo();
 
         !this.props.userInfo._id &&
         this.props.userInfo.getStorageID();
-
-        // 进入首页就查看一下他的收藏列表
-        const this_ = this;
-        this.props.userInfo._id &&
-        collections_find({ _id: this.props.userInfo._id }).then((colls) => {
-            console.log("收藏", colls.data.msg.collections.slice());
-            if(colls.data.code === "1000") {
-                this_.props.userInfo.collections = colls.data.msg.collections; // mobx 中有收藏列表了
-
-                // 根据收藏列表把文章详情请求回来
-            } else {
-                console.log("返回不是1000，记着写个提示");
-            }
-        });
     }
 
     render () {

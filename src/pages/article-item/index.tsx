@@ -155,19 +155,24 @@ class Article extends Component<IProps, IState> {
         }
 
         // 确保登录了 继续
-        const colArr = this.props.userInfo.collections.slice(); // 转化正常的数组
+        let colArr = this.props.userInfo.collections.slice(); // 转化正常的数组
+        if(typeof(colArr)==="string") {
+            colArr = JSON.parse(colArr);
+        }
         colArr.push(id);
         const req = {
             _id,
             collections: colArr
         };
+        console.log("添加是数组吗", Array.isArray(colArr));
+        // ERROR 我发送的数组 服务器接收的字符串
         collections_add(req).then((e) => {
             console.log("添加收藏返回的结果",e);
-
             if(e.data.code==="1000" || e.data.code==="0000") {
                 this.setState({
                     isStar: false
                 });
+
                 // 添加到 mobx
                 this.props.userInfo.collections.push(id);
                 Taro.showToast({
@@ -181,7 +186,7 @@ class Article extends Component<IProps, IState> {
                     isStar: false
                 });
                 Taro.showToast({
-                    title: "收藏失败~",
+                    title: "收藏失败1~",
                     icon: "none",
                     mask: true,
                     duration: 1200
@@ -191,9 +196,9 @@ class Article extends Component<IProps, IState> {
             this.setState({
                 isStar: false
             });
-            // TODO 埋点 e
+            console.warn("收藏失败2~",e);
             Taro.showToast({
-                title: "收藏失败~",
+                title: "收藏失败2~",
                 icon: "none",
                 mask: true,
                 duration: 1200
@@ -227,10 +232,12 @@ class Article extends Component<IProps, IState> {
         }
 
         // 确保登录了 继续
-        const colArr = this.props.userInfo.collections.slice(); // 转化正常的数组
-
-        console.log(111, this.props.userInfo.collections, colArr);
-        console.log(222, this.props.userInfo.collections.slice());
+        let colArr = this.props.userInfo.collections.slice(); // 转化正常的数组
+        if(typeof(colArr)==="string") {
+            colArr = JSON.parse(colArr);
+        }
+        console.log(111, this.props.userInfo.collections, colArr, Object.prototype.toString.call(colArr));
+        console.log(222, this.props.userInfo.collections.slice(),colArr.indexOf(id),typeof(colArr)==="string");
         colArr.splice(colArr.indexOf(id),1); // 删除这个后的数组发给服务器
         // colArr 现在是删除后的
         const req = {
@@ -238,7 +245,7 @@ class Article extends Component<IProps, IState> {
             collections: colArr
         };
         collections_add(req).then((e) => {
-            console.log("添加收藏返回的结果",e);
+            console.log("取消收藏返回的结果",e.data.code);
 
             if(e.data.code==="1000") {
                 this.setState({
@@ -257,7 +264,7 @@ class Article extends Component<IProps, IState> {
                     isStar: false
                 });
                 Taro.showToast({
-                    title: "取消失败~",
+                    title: "取消失败1~",
                     icon: "none",
                     mask: true,
                     duration: 1200
@@ -269,7 +276,7 @@ class Article extends Component<IProps, IState> {
             });
             // TODO 埋点 e
             Taro.showToast({
-                title: "取消失败~",
+                title: "取消失败2~",
                 icon: "none",
                 mask: true,
                 duration: 1200

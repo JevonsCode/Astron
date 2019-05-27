@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Button, Image } from "@tarojs/components";
-import { weChat_login, collections_find } from "@/api";
-import { observer, inject, toJS } from "@tarojs/mobx";
+import { collections_which } from "@/api";
+import { observer, inject } from "@tarojs/mobx";
 import "./main.scss";
 
 interface Mine {
@@ -20,6 +20,11 @@ interface Mine {
         }
     };
 }
+
+type IREDATA = {
+    code: number; // string
+    msg: {} | []
+};
 
 @inject("userInfo")
 @observer
@@ -107,8 +112,10 @@ class Mine extends Component {
 
     /**
      * 点击收藏跳转的时候就请求 `collections_find` 接口，把数据存在 mobx 中
+     * 通过 `collections_which` 把 _id 换文章
      */
     clickCollections() {
+        // 边跳转 边请求
         // Taro.navigateTo({
         //     url: "/pages/collections/index"
         // });
@@ -117,17 +124,52 @@ class Mine extends Component {
             console.log(this.props.userInfo);
             return false;
         }
-        const _id = this.props.userInfo._id;
-        collections_find({ _id }).then((colls) => {
-            console.log("收藏", colls.data.msg.collections.slice());
-            if(colls.data.code === "1000") {
-                this_.props.userInfo.collections = colls.data.msg.collections; // mobx 中有收藏列表了
+        const collections = this.props.userInfo.collections.slice();
 
-                // 根据收藏列表把文章详情请求回来
-            } else {
-                console.log("返回不是1000，记着写个提示");
+        console.log("当前请求的数组是:", collections);
+
+        if(collections===[]||collections.length<1) {
+            console.log("还没有收藏");
+            return;
+        }
+
+        console.log(Array.isArray(collections));
+        return;
+        collections_which({ collections }).then((data:any) => {
+            if(data.code > 0) {
+                console.log(data.msg);
             }
+            Taro.showToast({
+                title: "请求失败002~",
+                icon: "none",
+                mask: true,
+                duration: 1200
+            });
+            console.log(data);
+        }).catch((e) => {
+            // TODO 埋点 e
+            console.log("跳转的catch", e);
+            Taro.showToast({
+                title: "请求失败003~",
+                icon: "none",
+                mask: true,
+                duration: 1200
+            });
         });
+
+
+        // 好像没必要再请求这个了
+        // const _id = this.props.userInfo._id;
+        // collections_find({ _id }).then((colls) => {
+        //     console.log("收藏", colls.data.msg.collections.slice());
+        //     if(colls.data.code === "1000") {
+        //         this_.props.userInfo.collections = colls.data.msg.collections; // mobx 中有收藏列表了
+
+        //         // 根据收藏列表把文章详情请求回来
+        //     } else {
+        //         console.log("返回不是1000，记着写个提示");
+        //     }
+        // });
     }
 }
 
