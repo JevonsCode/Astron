@@ -7,22 +7,22 @@
     border-bottom: 1px #eee solid;
     
     .newsItem-box {
-        width: 94vw;
+        width: 92vw;
         margin: 0 auto;
 
         .img {
-            width: 94vw;
+            width: 92vw;
             border-radius: .5rem;
         }
         .title {
-            width: 80vw;
             font-size: 1rem;
+            margin: .2rem 1rem .3rem 0;
             font-weight: 500;
             position: relative;
             word-wrap:break-word
         }
         .desc {
-            width: 94vw;
+            width: 88vw;
             font-size: 0.8rem;
             font-weight: 300;
             color: #7b7979;
@@ -30,7 +30,8 @@
         }
         .tip {
             color: #BCB3D8;
-            display: inline-block;
+            margin-top: .2rem;
+            display: block;
             font-size: 0.5rem;
             font-weight: 200;
         }
@@ -38,7 +39,7 @@
         .share-icon {
             position: absolute;
             top: -10%;
-            right: -2.2rem;
+            right: -1.3rem;
             width: 2rem;
             height: 2rem;
             text-align: center;

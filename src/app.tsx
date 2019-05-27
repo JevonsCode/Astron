@@ -29,15 +29,14 @@ class App extends Component {
  */
     config: Config = {
         pages: [
-            "pages/user/index",
-
             "pages/index/index",
             "pages/stars/index",
             "pages/astro/index",
+            "pages/user/index",
             // other pages
             "pages/article-item/index",
-            "pages/universe-css/index"
-
+            "pages/universe-css/index",
+            "pages/collections/index"
         ],
         window: {
             backgroundTextStyle: "light",

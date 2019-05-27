@@ -16,23 +16,24 @@ export function RequestPost(data) {
 //       console.log("res.data",res.data);
 //   });
 }
-// export function RequestGet(path:string, data?:object) {
-//     return Taro.request({
-//         url: `https://astron.db.jevons.xyz/${path}`,
-//         header: {
-//             "content-type": "application/json"
-//         },
-//         data
-//     });
-// }
+export function RequestGet(path:string, data?:object) {
+    return Taro.request({
+        url: `https://astron.db.jevons.xyz/${path}`,
+        header: {
+            "content-type": "application/json"
+        },
+        data
+    });
+}
+
 // test
-// export function RequestGetTest(path:string, data?:object) {
-//     return Taro.request({
-//         url: `http://127.0.0.1:727/${path}`,
-//         header: {
-//             "content-type": "application/json"
-//         },
-//         data
-//     });
-// }
+export function RequestGetTest(path:string, data?:object) {
+    return Taro.request({
+        url: `http://127.0.0.1:727/${path}`,
+        header: {
+            "content-type": "application/json"
+        },
+        data
+    });
+}
 

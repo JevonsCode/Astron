@@ -56,10 +56,10 @@ class NewsItem extends Component {
 
                     {
                         newsItem.imgCover &&
-                        <Text className="tip mx-2">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
+                        <Text className="tip">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
                     }
 
-                    <View className="title my-1 ml-2 mr-5">
+                    <View className="title">
                         <Text>{newsItem.title}</Text>
                         <Button
                             className="at-icon at-icon-share share-icon"
@@ -69,10 +69,10 @@ class NewsItem extends Component {
 
                     {
                         !newsItem.imgCover &&
-                        <Text className="tip mx-2">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
+                        <Text className="tip">{newsItem.tip ? newsItem.tip : "COMMUNITY"}</Text>
                     }
 
-                    <View className="desc my-1 mx-2">
+                    <View className="desc">
                         <Text>{newsItem.desc}</Text>
                     </View>
 
@@ -88,7 +88,6 @@ class NewsItem extends Component {
     toPage(newsItem) {
         if(this.state.isClick === true) return;
 
-        console.log("aaaaaa", this.state.isClick);
         const { whichNews } = this.props;
         whichNews.params = newsItem;
         Taro.navigateTo({
@@ -108,7 +107,7 @@ class NewsItem extends Component {
             this.state.isClick = false;
         }, 300);
 
-        console.log("123123", this.state.isClick);
+        // console.log("123123", this.state.isClick);
     }
 
     // onShareAppMessage() {

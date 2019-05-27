@@ -1,9 +1,59 @@
-.test {
-    width: 60vh;
-    margin: 0 auto;
-    background: rgba(211, 5, 5, 0.383);
-    word-break: break-all;
-    word-wrap: break-word;
-    line-height: 1.5;
+.mine-style {
 
+    .mine-style-unknow {
+
+    }
+
+    .mine-style-know {
+        .info-box {
+            margin: 5vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .info-head {
+                width: 4.6rem;
+                height: 4.6rem;
+                border-radius: 2.3rem;
+            }
+            .info-name {
+                width: 12rem;
+                height: 2.5rem;
+                font-weight: normal;
+                font-size: .8rem;
+                text-align: center;
+                line-height: 2.5rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .option-box {
+            width: 80vw;
+            height: 50vh;
+            margin: 2.4rem auto 0;
+            display: flex;
+            flex-direction: column;
+            // background: #ccc;
+
+            .option-item {
+                // background: rgba(255, 164, 164, 0.438);
+                height: 3rem;
+                line-height: 3rem;
+                padding: 0 0 0 3rem;
+                margin: .5rem 1.6rem .5rem 1.2rem;
+                border-radius: .5rem;
+                box-shadow: 0 0 .2rem .1rem #eee;
+
+
+                .option-item-icon {
+                    font-size: .9rem;
+                    font-weight: normal;
+                    color: rgb(226, 62, 212);
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
 }

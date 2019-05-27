@@ -43,8 +43,13 @@ class Details extends Component {
                         return (
                             item.substring(0, 3) !== "#I#" ?
                             (
+                                item.substring(0, 3) !== "#C#" ?
                                 <View key={index} className="at-article at-article__p details-article">
                                     {item}
+                                </View>
+                                :
+                                <View key={index} className="at-article at-article__p details-article details-article-C">
+                                    {item.substring(3)}
                                 </View>
                             ) :
                             (

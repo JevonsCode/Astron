@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, AtGrid } from "@tarojs/components";
+import { View } from "@tarojs/components";
 import "../main.scss";
 
 interface Parameter {
@@ -32,7 +32,7 @@ class Parameter extends Component {
     }
 
     render () {
-        console.log(this.state.paramsArr);
+        // console.log(this.state.paramsArr);
         const listKey = [
             "到地球的平均距离",
             "半径",
@@ -44,14 +44,15 @@ class Parameter extends Component {
             "日照长度",
             "年长",
             "轨道速度",
-            "表面温度"
+            "表面温度",
+            "大气成分"
         ];
         return (
             <View className="parameter-box">
                 {
                     listKey.map((param, index) => {
                         return (
-                            <View key={index} className="parameter-line">
+                            <View key={param} className="parameter-line">
                                 <View className="key">{param}</View>
                                 <View className="value">{this.state.paramsArr[index]}</View>
                             </View>

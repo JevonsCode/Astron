@@ -200,6 +200,12 @@
     .details-article {
         white-space: initial;
     }
+    .details-article-C {
+        font-weight: 800;
+        font-size: 30rpx;
+        margin-top: 45rpx ;
+        margin-bottom: 5rpx;
+    }
 }
 
 .parameter-box {
@@ -216,6 +222,10 @@
         color: #343434;
         font-weight: 600;
         border-bottom: 1px rgba(238, 238, 238, 0.644) solid;
+
+        &:last-child {
+            border: none
+        }
 
         .key, .value {
             width: 50%;
@@ -237,7 +247,8 @@
     position: fixed;
     top: 0;
     z-index: 5;
-    background: rgba(4,11,27, .5);
+    background: rgba(4,11,27);
+    padding-bottom: 10rpx;
 }
 .at-tabs__item {
     color: rgba(255, 255, 255, 0.726);
@@ -255,4 +266,8 @@
 .at-tabs__item--active {
     color: #BD8355;
     font-weight: 800;
+}
+.at-article__p {
+    margin-top: 15rpx;
+    margin-bottom: 45rpx; 
 }
