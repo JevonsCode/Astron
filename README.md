@@ -15,7 +15,7 @@
 ![Progress](http://progressed.io/bar/0)
 
 - [ ] 个人中心 
-![Progress](http://progressed.io/bar/0)
+![Progress](http://progressed.io/bar/90)
 
 ---
 

@@ -165,7 +165,7 @@ class Article extends Component<IProps, IState> {
             collections: colArr
         };
         console.log("添加是数组吗", Array.isArray(colArr));
-        // ERROR 我发送的数组 服务器接收的字符串
+        // ERROR 我发送的数组 服务器接收的字符串 2019-5-27
         collections_add(req).then((e) => {
             console.log("添加收藏返回的结果",e);
             if(e.data.code==="1000" || e.data.code==="0000") {

@@ -1,0 +1,97 @@
+.collections-style {
+    width: 100vw;
+    display: flex;
+    margin-top: 20rpx;
+
+    .nothing-box {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #aaa;
+    }
+
+    .list-box {
+        width: 92vw;
+        margin: 0 auto;
+        
+        .list-item {
+            width: 100%;
+            height: 210rpx;
+            margin-bottom: .5rem;
+            border-radius: .5rem;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 0 6rpx 6rpx #eee;
+            position: relative;
+
+            &-delete {
+                font-size: .8rem;
+                position: absolute;
+                top: 20rpx;
+                right: 20rpx;
+                color: #ccc;
+                border: 1px #FFF solid;
+                margin: 0;
+                padding: 0;
+                outline: none;
+                background-color: #FFF;
+
+                &::after {
+                    border: none;
+                }
+            }
+
+            &-nothing {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #aaa;
+                margin: 0 auto;
+                font-size: .8rem;
+            }
+
+            &-img {
+                width: 210rpx;
+                height: 190rpx;
+                margin: 10rpx 0 10rpx 10rpx;
+                border-radius: .5rem;
+            }
+
+            &-info {
+                max-width: 60%;
+                display: flex;
+                overflow: hidden;
+                flex-direction: column;
+                margin: 10rpx 30rpx;
+                justify-content: space-between;
+
+                &-title {
+                    font-size: .9rem;
+                    font-weight: normal;
+                    height: 90rpx;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+    
+                &-date {
+                    font-size: .5rem;
+                    font-weight: 200;
+                    color: rgb(211, 62, 231);
+                }
+    
+                &-desc {
+                    font-size: .7rem;
+                    font-weight: 200;
+                    height: 40rpx;
+                    color: rgb(65, 65, 65);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+}

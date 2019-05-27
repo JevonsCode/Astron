@@ -13,6 +13,7 @@ interface Mine {
             },
             _id: string,
             collections: any, // TODO 数组
+            whichColls: any, // TODO 数组
             getStorageInfo: Function,
             getStorageID: Function,
             onLoginByWeapp: Function,
@@ -115,11 +116,9 @@ class Mine extends Component {
      * 通过 `collections_which` 把 _id 换文章
      */
     clickCollections() {
-        // 边跳转 边请求
-        // Taro.navigateTo({
-        //     url: "/pages/collections/index"
-        // });
-        const this_ = this;
+        // 边跳转 边请求 pass ×
+
+        // const this_ = this;
         if(this.props.userInfo._id.length < 1) {
             console.log(this.props.userInfo);
             return false;
@@ -130,14 +129,22 @@ class Mine extends Component {
 
         if(collections===[]||collections.length<1) {
             console.log("还没有收藏");
+            Taro.navigateTo({
+                url: "/pages/collections/index"
+            });
             return;
         }
 
         console.log(Array.isArray(collections));
-        return;
-        collections_which({ collections }).then((data:any) => {
-            if(data.code > 0) {
-                console.log(data.msg);
+        collections_which({ collections }).then((r:any) => {
+            if(r.data.code > 0) {
+                console.log(r.data.msg);
+                // 把这些文章存入 mobx
+                this.props.userInfo.whichColls = r.data.msg;
+                Taro.navigateTo({
+                    url: "/pages/collections/index"
+                });
+                return true;
             }
             Taro.showToast({
                 title: "请求失败002~",
@@ -145,7 +152,6 @@ class Mine extends Component {
                 mask: true,
                 duration: 1200
             });
-            console.log(data);
         }).catch((e) => {
             // TODO 埋点 e
             console.log("跳转的catch", e);

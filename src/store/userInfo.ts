@@ -11,6 +11,7 @@ class userInfo {
     @observable collections = [];
     @observable info = {};
     @observable _id = "";
+    @observable whichColls = [];
 
     @action.bound getStorageInfo() {
         Taro.getStorage({ key: "userInfo" }).then((res) => {
