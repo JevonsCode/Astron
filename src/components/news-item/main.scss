@@ -5,6 +5,9 @@
     justify-content: center;
     width: 100vw;
     border-bottom: 1px #eee solid;
+    &:last-child {
+        border: none
+    }
     
     .newsItem-box {
         width: 92vw;

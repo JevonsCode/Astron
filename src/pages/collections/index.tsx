@@ -14,7 +14,8 @@ interface Collections {
 
     props: {
         userInfo: {
-            whichColls: any // 数组
+            whichColls: [{any}], // 数组
+            collections: [string]
         }
     };
 }
@@ -80,7 +81,9 @@ class Collections extends Component {
                                 ?
                                 <View key={item._id} className="list-item" onClick={this.toPageArt.bind(this, item)}>
                                     <Button disabled={this.state.btnDis} onClick={this.deleteBtnFun.bind(this, item._id)} className="at-icon at-icon-close list-item-delete" />
-                                    <Image className="list-item-img" mode="aspectFill" lazyLoad={true} src={item.imgCover ? item.imgCover : "https://qiniu.jevons.xyz/mock/starMock.gif"} />
+                                    <View className="list-item-img-box">
+                                        <Image className="list-item-img" mode="aspectFill" lazyLoad={true} src={item.imgCover ? item.imgCover : "https://qiniu.jevons.xyz/mock/starMock.gif"} />
+                                    </View>
                                     <View className="list-item-info">
                                         <View className="list-item-info-title">{item.title}</View>
                                         <View className="list-item-info-date">{item.date.substr(0,10)}</View>
@@ -112,15 +115,17 @@ class Collections extends Component {
         if(this.state.isClick === true) {
             return;
         }
-        this.setState({
-            isClick: true
-        });
+        // this.setState({
+        //     isClick: true
+        // });
+        this.state.isClick = true; // 不这样就会穿透点击！
         setTimeout(() => {
             this.setState({
                 isClick: false
             });
         }, 300);
 
+        //让这个按钮不能重复点击
         this.setState({
             btnDis: true
         });
@@ -144,9 +149,12 @@ class Collections extends Component {
 
         // 确保登录了 继续
         let colArr = this.props.userInfo.collections.slice(); // 转化正常的数组
+        console.log("colArr是string吗",typeof(colArr), colArr);
         if(typeof(colArr)==="string") {
             colArr = JSON.parse(colArr);
         }
+
+        // 处理null 如果id是null
         if(!id) {
             const C:[string] = this.props.userInfo.whichColls.slice();
             const W:number = C.indexOf(id);
@@ -154,17 +162,19 @@ class Collections extends Component {
             colArr.splice(W,1);
             // colArr.splice()
         } else {
-            console.log(1111,colArr);
+            console.log(1112,colArr);
             colArr.splice(colArr.indexOf(id),1); // 删除这个后的数组发给服务器
-            console.log(1111,colArr);
+            console.log(1113,colArr);
         }
 
+        // 投机处理 如果只有一个还取消了 直接给空
         if(this.props.userInfo.whichColls.slice().length<2) {
             colArr = [];
             this_.setState({
                 whichColls: []
             });
             this.props.userInfo.whichColls = [];
+            // 这里只是界面效果看起来快了 不等返回了 正常逻辑不变
         }
         // colArr 现在是删除后的
         const req = {
@@ -177,6 +187,8 @@ class Collections extends Component {
             if(e.data.code > -1) {
                 // 从 mobx 中删除
                 this.props.userInfo.collections = colArr;
+                // 检查是哪个文章 然后删了 这些东西以后都扔后端！ 可恶
+                // TODO 前端处理太繁琐了！还不是请求好几次，不如直接把结果拿过来！
                 this.clickCollections();
                 Taro.showToast({
                     title: "取消成功~",
@@ -189,7 +201,7 @@ class Collections extends Component {
                     btnDis: false
                 });
                 Taro.showToast({
-                    title: "取消失败1~",
+                    title: "取消失败1.1~",
                     icon: "none",
                     mask: true,
                     duration: 1200
@@ -210,17 +222,26 @@ class Collections extends Component {
     }
 
     /**
-     * 点击收藏跳转的时候就请求 `collections_find` 接口，把数据存在 mobx 中
+     * 请求 `collections_find` 接口，把数据存在 mobx 中
+     * 我真是个鬼才想到这种方法。。。以后放后端直接返回！
      * 通过 `collections_which` 把 _id 换文章
      */
     clickCollections() {
         const this_ = this;
-        const collections = this.props.userInfo.collections.slice();
 
-        console.log(Array.isArray(collections));
-        collections_which({ collections }).then((r:any) => {
-            if(r.data.code > 0) {
-                console.log(r.data.msg);
+        // 收藏的文章ID数组
+        const collectionsS = this.props.userInfo.collections.slice();
+
+        console.log(Array.isArray(collectionsS));
+        console.log("-->",(collectionsS));
+        /**
+         *  2019-5-29 02:41:26 我找到了困扰我半小时的BUG, 这个 `collectionsS` 我原本是为了
+         *  把变量名字区分, 就一次性改了这里的  4 个 `collections` 一次性加了 `S` 可是我这个
+         *  接口是 `({ collections })` 写成了 `({ collectionsS })` !!! 以后不能眼这么瞎了 !!!
+         */
+        collections_which({ collections: collectionsS }).then((r:any) => {
+            console.log("clickCollections==>",r.data);
+            if(r.data.code > 0 || r.data.code==="1000") {
                 // 把这些文章存入 mobx
                 this.props.userInfo.whichColls = r.data.msg;
 
@@ -268,6 +289,7 @@ class Collections extends Component {
      * @desc 跳转文章页
      */
     toPageArt(item) {
+        console.log("跳转前",this.state.isClick);
         if(this.state.isClick === true) {
             return;
         }

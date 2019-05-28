@@ -102,6 +102,7 @@ class NewsItem extends Component {
      * @desc 分享
      */
     share() {
+        const that = this;
         // 防止重复 click
         // this.setState({
         this.state.isClick = true;
@@ -109,17 +110,18 @@ class NewsItem extends Component {
         setTimeout(() => {
             this.state.isClick = false;
         }, 300);
-
-        // console.log("123123", this.state.isClick);
     }
-
-    // onShareAppMessage() {
-    //     return {
-    //         title: "弹出分享时显示的分享标题",
-    //         desc: "分享页面的内容",
-    //         // path: "/page/user?id=123" // 路径，传递参数到指定页面。
-    //     };
-    // }
+    onShareAppMessage (res) {
+        console.log("!!!");
+        if (res.from === "button") {
+          // 来自页面内转发按钮
+            console.log(res.target);
+        }
+        return {
+            title: "自定义转发标题",
+            path: "/page/user?id=123"
+        };
+    }
 }
 
 export default NewsItem;

@@ -20,11 +20,12 @@ interface SliderBanner {
         whichNews: {
             news: [ISBanner]
         }
+        data: ISBanner[]
     };
 
-    state: {
-        newDataArr: [ISBanner]
-    };
+    // state: {
+    //     newDataArr: [ISBanner]
+    // };
 }
 
 @inject("whichNews")
@@ -33,19 +34,19 @@ class SliderBanner extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            newDataArr: []
-        };
+        // this.state = {
+        //     newDataArr: []
+        // };
     }
 
     componentWillMount() {
-        hot_news().then((r) => {
-            if(r.data.code==="1000") {
-                this.setState({
-                    newDataArr: r.data.msg
-                });
-            }
-        });
+        // hot_news().then((r) => {
+        //     if(r.data.code==="1000") {
+        //         this.setState({
+        //             newDataArr: r.data.msg
+        //         });
+        //     }
+        // });
     }
 
     /**
@@ -75,7 +76,7 @@ class SliderBanner extends Component {
     };
 
     render() {
-        const newsItem = this.state.newDataArr;
+        const newsItem = this.props.data;
 
         return(
             <View className="slider-style">

@@ -31,10 +31,9 @@ class App extends Component {
  */
     config: Config = {
         pages: [
-            "pages/astro/index",
             "pages/index/index",
             "pages/stars/index",
-            // "pages/astro/index",
+            "pages/astro/index",
             "pages/user/index",
             // other pages
             "pages/article-item/index",
@@ -72,7 +71,7 @@ class App extends Component {
                     pagePath: "pages/astro/index",
                     iconPath: "assets/icon/c1.png",
                     selectedIconPath: "assets/icon/c2.png",
-                    text: "航空"
+                    text: "历史"
                 },
                 {
                     pagePath: "pages/user/index",

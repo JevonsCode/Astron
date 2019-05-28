@@ -20,7 +20,7 @@ type IHistory = {
 interface Astro {
     state: {
         current: number,
-        historyData: [IHistory]
+        historyData: IHistory[]
     };
 }
 
@@ -61,7 +61,7 @@ class Astro extends Component {
     render() {
         const tabList=[
             { title: "全部" },
-            { title: "a-z" }
+            { title: "时间线" }
         ];
         return(
             <View className="history-style">

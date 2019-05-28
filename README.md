@@ -6,16 +6,16 @@
 > Global TODO
 
 - [x] 首页 
-![Progress](http://progressed.io/bar/90)
+![Progress](http://progressed.io/bar/95)
 
 - [ ] 资料&图像展示页 
 ![Progress](http://progressed.io/bar/99)
 
 - [ ] 历史展示页 
-![Progress](http://progressed.io/bar/0)
+![Progress](http://progressed.io/bar/90)
 
 - [ ] 个人中心 
-![Progress](http://progressed.io/bar/90)
+![Progress](http://progressed.io/bar/95)
 
 ---
 
@@ -24,17 +24,20 @@
 - [ ] 富文本返回文本 css
 ![Progress](http://progressed.io/bar/30)
 
-- [ ] 下拉加载 & 接口定义
-![Progress](http://progressed.io/bar/0)
+- [x] 下拉加载 & 接口定义
+![Progress](http://progressed.io/bar/100)
 
-- [ ] 滚动头部标签组件
-![Progress](http://progressed.io/bar/50)
+- [x] 滚动头部标签组件
+![Progress](http://progressed.io/bar/99)
 
 - [x] 轮播图组件
 ![Progress](http://progressed.io/bar/100)
 
-- [ ] 行星数据库
-![Progress](http://progressed.io/bar/0)
+- [x] 行星数据库
+![Progress](http://progressed.io/bar/100)
+
+- [ ] sticky
+![Progress](http://progressed.io/bar/1)
 
 > 参考
 

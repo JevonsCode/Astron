@@ -263,27 +263,28 @@ class Article extends Component<IProps, IState> {
                 // 从 mobx 中删除
                 this.props.userInfo.collections.remove(id);
 
-                // 从列表过来取消收藏 this.state.artTemp 暂存
-                let whichNewsItem;
-                this.props.userInfo.whichColls.slice().forEach((item) => {
-                    if(item._id === id) {
-                        whichNewsItem = item;
-                    }
-                });
+                try {
+                    // 从列表过来取消收藏 this.state.artTemp 暂存
+                    let whichNewsItem;
+                    this.props.userInfo.whichColls.slice().forEach((item) => {
+                        if(item._id === id) {
+                            whichNewsItem = item;
+                        }
+                    });
 
-                this.setState({
-                    artTemp: whichNewsItem
-                });
-                // console.log(0000, this.props.userInfo.whichColls.slice(),whichNewsItem._id, id);
-                console.log(1111, this.props.userInfo.whichColls.slice(),whichNewsItem._id, id);
-                this.props.userInfo.whichColls.remove(whichNewsItem);
-                console.log(2222, this.props.userInfo.whichColls.slice());
-                Taro.showToast({
-                    title: "取消成功~",
-                    icon: "none",
-                    mask: true,
-                    duration: 1200
-                });
+                    this.setState({
+                        artTemp: whichNewsItem
+                    });
+                    this.props.userInfo.whichColls.remove(whichNewsItem);
+                    Taro.showToast({
+                        title: "取消成功~",
+                        icon: "none",
+                        mask: true,
+                        duration: 1200
+                    });
+                } catch(e) {
+                    console.log("eeeee",e);
+                }
             } else {
                 this.setState({
                     isStar: false

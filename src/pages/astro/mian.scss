@@ -1,13 +1,11 @@
-@import "~taro-ui/dist/style/components/indexes.scss";
-@import "~taro-ui/dist/style/components/list.scss";
 
 .history-style {
 
     .history-header-box {
         width: 100vw;
-        height: 20vh;
+        height: 12vh;
         text-align: center;
-        line-height: 20vh;
+        line-height: 12vh;
         font-size: 1.5rem;
         letter-spacing: 5rpx;
     }
@@ -17,7 +15,6 @@
     width: 100vw;
     min-height: 70vh;
     
-    // background: rgba(216, 7, 7, 0.678);
     .img-item {
         float: left;
 
@@ -83,6 +80,17 @@
 
 .info-index {
     width: 100vw;
-    min-height: 70vh;
+    height: 100vh;
     background: rgba(110, 6, 245, 0.411);
+
+    .index-at {
+        // height: 100vh
+    }
+}
+
+
+.at-tabs__header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }

@@ -23,10 +23,17 @@ export function obtainStars() {
 }
 
 /**
- * @desc get 获取 star 数据
+ * @desc get 获取 history 数据
  */
 export function obtainHistory() {
     return RequestGet("astron/astron_history_data");
+}
+
+/**
+ * @desc get 获取 按时间排序的 history 数据
+ */
+export function obtainSortHistory() {
+    return RequestGet("astron/astron_history_sort_data");
 }
 
 /**

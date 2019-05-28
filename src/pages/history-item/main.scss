@@ -47,29 +47,29 @@
             line-height: 1.8rem;
         }
 
-        // 收藏
-        .collect {
-            width: 2rem;
-            font-size: 1rem;
-            color: rgb(211, 49, 184);
-            position: absolute;
-            z-index: 5;
-            right: 5vw;
-            font-size: 1.8rem;
-            top: 1.1rem;
+        // // 收藏
+        // .collect {
+        //     width: 2rem;
+        //     font-size: .8rem;
+        //     color: #bd74f7;
+        //     position: absolute;
+        //     z-index: 5;
+        //     right: 5vw;
+        //     font-size: 1.8rem;
+        //     top: 1.1rem;
 
-            &-btn {
-                border: 1px #FFF solid;
-                margin: 0;
-                padding: 0;
-                outline: none;
-                background-color: #FFF;
+        //     &-btn {
+        //         border: 1px #FFF solid;
+        //         margin: 0;
+        //         padding: 0;
+        //         outline: none;
+        //         background-color: #FFF;
 
-                &::after {
-                    border: none;
-                }
-            }
-        }
+        //         &::after {
+        //             border: none;
+        //         }
+        //     }
+        // }
 
         .info {
             width: 90vw;
