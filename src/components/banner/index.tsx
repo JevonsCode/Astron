@@ -1,11 +1,17 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, Text, Swiper, SwiperItem, Video } from "@tarojs/components";
+import { View, Text, Video } from "@tarojs/components";
 import { banner_url } from "@/api";
 import "./main.scss";
 
 interface Banner {
     state: {
-        bannerUrl: string;
+        bannerInfo: {
+            url: string,
+            title: string,
+            desc: string,
+            muted: boolean
+        }
+        showDesc: boolean
     };
 }
 
@@ -14,8 +20,17 @@ class Banner extends Component {
         super(props);
 
         this.state = {
-            bannerUrl: "https://qiniu.jevons.xyz/video.mp4"
+            bannerInfo: {
+                url: "https://qiniu.jevons.xyz/video.mp4",
+                title: "",
+                desc: "",
+                muted: false
+            },
+            showDesc: true
         };
+
+        this.handleVideoT = this.handleVideoT.bind(this);
+        this.handleVideoF = this.handleVideoF.bind(this);
     }
 
     componentWillMount() {
@@ -23,7 +38,7 @@ class Banner extends Component {
             console.log("urlBanner", r.data);
             if(r.data.code==="1000") {
                 this.setState({
-                    bannerUrl: r.data.msg
+                    bannerInfo: r.data.msg
                 });
             }
         });
@@ -35,27 +50,45 @@ class Banner extends Component {
     };
 
     render() {
-        console.log("urlBanner2", this.state.bannerUrl);
+        console.log("banner info--->", this.state.bannerInfo);
         return(
             <View className="banner-style my-3" onClick={this.toPage.bind(this, "newsItem")}>
 
                 <Video
                     className="video"
-                    src={this.state.bannerUrl}
-                    controls={false}
+                    src={this.state.bannerInfo.url}
+                    controls={true}
                     autoplay={true}
-                    // loop={true}
-                    muted={true}
+                    show-mute-btn={true}
+                    auto-pause-if-navigate={true}
+                    muted={this.state.bannerInfo.muted}
                     objectFit="cover"
+                    onPlay={this.handleVideoF}
+                    onPause={this.handleVideoT}
+                    onEnded={this.handleVideoT}
                 />
 
-                <View className="text-view">
-                    <Text className="title">Astronauts Tranin for the Boeing Crew Flight Test</Text>
-                    <Text className="date">2019-05-05</Text>
-                </View>
+                {
+                    this.state.showDesc &&
+                    <View className="text-view">
+                        <Text className="title">{this.state.bannerInfo.title}</Text>
+                        <Text className="date">{this.state.bannerInfo.desc}</Text>
+                    </View>
+                }
 
             </View>
         );
+    }
+
+    handleVideoF() {
+        this.setState({
+            showDesc: false
+        });
+    }
+    handleVideoT() {
+        this.setState({
+            showDesc: true
+        });
     }
 
     /**

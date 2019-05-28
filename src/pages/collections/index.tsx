@@ -232,7 +232,7 @@ class Collections extends Component {
                 btnDis: false
             });
             Taro.showToast({
-                title: "请求失败003.1~",
+                title: "请求超时003.1~",
                 icon: "none",
                 mask: true,
                 duration: 1200

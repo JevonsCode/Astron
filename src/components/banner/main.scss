@@ -17,11 +17,12 @@
     .text-view {
 
         position: absolute;
-        color: #FFF;
+        color: rgba(255, 255, 255, 0.788);
         z-index: 1;
-        bottom: 4%;
+        bottom: 50rpx;
         left: 5%;
         right: 5%;
+        pointer-events: none;
         
         .title {
             display: inline-block;
@@ -33,6 +34,11 @@
             display: inline-block;
             font-size: .65rem;
             font-weight: 200;
+            margin-right: 5%;
+            width: 80vw;
+            white-space: initial;
+            word-wrap: break-word;
+            overflow: hidden;
         }
     }
 

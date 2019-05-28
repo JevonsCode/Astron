@@ -23,6 +23,13 @@ export function obtainStars() {
 }
 
 /**
+ * @desc get 获取 star 数据
+ */
+export function obtainHistory() {
+    return RequestGet("astron/astron_history_data");
+}
+
+/**
  * WeChat 登录
  */
 export function weChat_login(data:object) {

@@ -29,10 +29,10 @@ class App extends Component {
  */
     config: Config = {
         pages: [
-
+            "pages/astro/index",
             "pages/index/index",
             "pages/stars/index",
-            "pages/astro/index",
+            // "pages/astro/index",
             "pages/user/index",
             // other pages
             "pages/article-item/index",
