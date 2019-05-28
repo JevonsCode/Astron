@@ -9,7 +9,14 @@ export function obtainNews() {
 }
 
 /**
- * @desc get 获取 news 数据
+ * @desc get 获取 -------news-------- 数据
+ */
+export function hot_news() {
+    return RequestGet("astron/astron_hot_news");
+}
+
+/**
+ * @desc get 获取 star 数据
  */
 export function obtainStars() {
     return RequestGet("astron/astron_stars_data");
@@ -19,21 +26,21 @@ export function obtainStars() {
  * WeChat 登录
  */
 export function weChat_login(data:object) {
-    return RequestGetTest("astron/astron_login_wx", data);
+    return RequestGet("astron/astron_login_wx", data);
 }
 
 /**
  * WeChat 登录
  */
 export function collections_find(data:object) {
-    return RequestGetTest("astron/astron_collections_find", data);
+    return RequestGet("astron/astron_collections_find", data);
 }
 
 /**
  * collect add
  */
 export function collections_add(data:object) {
-    return RequestGetTest("astron/astron_collections_add", data);
+    return RequestGet("astron/astron_collections_add", data);
 }
 
 /**
@@ -41,6 +48,22 @@ export function collections_add(data:object) {
  * @return 对应 news
  */
 export function collections_which(data:object) {
-    return RequestGetTest("astron/astron_collections_which", data);
+    return RequestGet("astron/astron_collections_which", data);
+}
+
+/**
+ * @param banner_url
+ * @return banner_url
+ */
+export function banner_url() {
+    return RequestGet("astron/astron_banner_url");
+}
+
+/**
+ * @param about_us
+ * @return about_us
+ */
+export function about_us() {
+    return RequestGet("astron/astron_about_text");
 }
 

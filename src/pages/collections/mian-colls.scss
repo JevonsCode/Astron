@@ -1,7 +1,7 @@
 .collections-style {
     width: 100vw;
     display: flex;
-    margin-top: 20rpx;
+    
 
     .nothing-box {
         width: 100vw;
@@ -14,7 +14,7 @@
 
     .list-box {
         width: 92vw;
-        margin: 0 auto;
+        margin: 20rpx auto;
         
         .list-item {
             width: 100%;
@@ -74,6 +74,7 @@
                     height: 90rpx;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    margin-right: .8rem;
                 }
     
                 &-date {

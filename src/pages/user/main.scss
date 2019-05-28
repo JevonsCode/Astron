@@ -1,15 +1,32 @@
+@import "~taro-ui/dist/style/components/float-layout.scss";
+
 .mine-style {
-
     .mine-style-unknow {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+        .btn {
+            width: 400rpx;
+            height: 100rpx;
+            text-align: center;
+            line-height: 100rpx;
+            color: #fff;
+            background: #62b900;
+        }
     }
 
     .mine-style-know {
+        width: 100vw;
+        height: 100vh;
         .info-box {
-            margin: 5vh;
+            padding: 15vh 0 5vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 30vh;
 
             .info-head {
                 width: 4.6rem;
@@ -32,10 +49,9 @@
         .option-box {
             width: 80vw;
             height: 50vh;
-            margin: 2.4rem auto 0;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            // background: #ccc;
 
             .option-item {
                 // background: rgba(255, 164, 164, 0.438);
@@ -45,15 +61,44 @@
                 margin: .5rem 1.6rem .5rem 1.2rem;
                 border-radius: .5rem;
                 box-shadow: 0 0 .2rem .1rem #eee;
-
+                text-align: start;
+                font-size: .9rem;
+                font-weight: normal;
 
                 .option-item-icon {
                     font-size: .9rem;
                     font-weight: normal;
                     color: rgb(226, 62, 212);
-                    padding-right: 1rem;
+                    padding-right: 2rem;
+                }
+            }
+
+            .option-item-btn {
+                border: 0;
+                // margin: 0;
+                // padding: 0;
+                outline: none;
+                background-color: #FFF;
+
+                &::after {
+                    border: none;
                 }
             }
         }
+    }
+}
+
+.details-box {
+    width: 96vw;
+    margin: 0 auto;
+
+    .details-article {
+        white-space: initial;
+    }
+    .details-article-C {
+        font-weight: 800;
+        font-size: 30rpx;
+        margin-top: 45rpx ;
+        margin-bottom: 5rpx;
     }
 }

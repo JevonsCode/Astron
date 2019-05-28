@@ -28,7 +28,10 @@ class Parameter extends Component {
      * @param arr 参数字符串
      */
     parameterFormat(arr) {
-        this.state.paramsArr = arr.split("#F#");
+        // this.state.paramsArr = arr.split("#F#");
+        this.setState({
+            paramsArr: arr.split("#F#")
+        });
     }
 
     render () {

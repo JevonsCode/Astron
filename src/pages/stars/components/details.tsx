@@ -28,7 +28,10 @@ class Details extends Component {
      * @param art 文章
      */
     articleFormat(art) {
-        this.state.artArr = art.split("#B#");
+        // this.state.artArr = art.split("#B#");
+        this.setState({
+            artArr: art.split("#B#")
+        });
     }
 
     // if(item.substring(0, 3) === "#I#") {
@@ -44,11 +47,11 @@ class Details extends Component {
                             item.substring(0, 3) !== "#I#" ?
                             (
                                 item.substring(0, 3) !== "#C#" ?
-                                <View key={index} className="at-article at-article__p details-article">
+                                <View key={Math.random()} className="at-article at-article__p details-article">
                                     {item}
                                 </View>
                                 :
-                                <View key={index} className="at-article at-article__p details-article details-article-C">
+                                <View key={Math.random()} className="at-article at-article__p details-article details-article-C">
                                     {item.substring(3)}
                                 </View>
                             ) :
@@ -56,6 +59,7 @@ class Details extends Component {
                                 <Image
                                     className="at-article__img"
                                     src={item.substring(3)}
+                                    lazyLoad={true}
                                     mode="widthFix" />
                             )
                         );

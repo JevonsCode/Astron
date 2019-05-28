@@ -1,16 +1,8 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, Text, Swiper, SwiperItem, Video, ScrollView } from "@tarojs/components";
+import { View, Image, Text } from "@tarojs/components";
 import { observer, inject } from "@tarojs/mobx";
+import { hot_news } from "@/api";
 import "./main.scss";
-import { randomBytes } from "crypto";
-
-interface SliderBanner {
-    props: {
-        whichNews: {
-            params: {}
-        }
-    };
-}
 
 type ISBanner = {
     _id: string,
@@ -19,15 +11,63 @@ type ISBanner = {
     content: string,
     desc: string,
     date: string,
-    imgCover?: string,
-    tip?: string
+    imgCover: string,
+    tip: [string]
 };
+
+interface SliderBanner {
+    props: {
+        whichNews: {
+            news: [ISBanner]
+        }
+    };
+
+    state: {
+        newDataArr: [ISBanner]
+    };
+}
+
 @inject("whichNews")
 @observer
 class SliderBanner extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            newDataArr: []
+        };
     }
+
+    componentWillMount() {
+        hot_news().then((r) => {
+            if(r.data.code==="1000") {
+                this.setState({
+                    newDataArr: r.data.msg
+                });
+            }
+        });
+    }
+
+    /**
+     * 数组去重
+     * @param array 数组
+     */
+    // arrUniq(array){
+    //     const temp:any = [];
+    //     const index:any = [];
+    //     const l = array.length;
+    //     for(let i = 0; i < l; i++) {
+    //         for(let j = i + 1; j < l; j++){
+    //             if (array[i] === array[j]){
+    //                 i++;
+    //                 j = i;
+    //             }
+    //         }
+    //         temp.push(array[i]);
+    //         index.push(i);
+    //     }
+    //     return temp;
+    // }
 
     // 样式用全局要加这个
     static options = {
@@ -35,55 +75,26 @@ class SliderBanner extends Component {
     };
 
     render() {
-        const mockData = [
-            {
-                title: "这个是一个小新闻啊",
-                _id: "123",
-                tip: "Astronauts",
-                imgCover: "https://qiniu.jevons.xyz/mock/mock.jpg",
-                content: "在Button上加上属性open-type=share,点击Button按钮，即可给好友分享。不加onShareAppMessage函数，分享的地址，连接都是默认生成的。如是要自定义分享给好友的地址，连接等就要自己写onShareAppMessage函数",
-                author: "who",
-                desc: "在Button上加上属性open-type=sh",
-                date: "2019-5-20 20:14:07"
-            },
-            {
-                title: "这个是一个小新闻123123123132123123123123",
-                _id: "123",
-                tip: "Astronauts",
-                imgCover: "https://qiniu.jevons.xyz/mock/mock.jpg",
-                content: "在Button上加上属性open-type=share,点击Button按钮，即可给好友分享。不加onShareAppMessage函数，分享的地址，连接都是默认生成的。如是要自定义分享给好友的地址，连接等就要自己写onShareAppMessage函数",
-                author: "who",
-                desc: "在Button上加上属性open-type=sh",
-                date: "2019-5-20 20:14:07"
-            },
-            {
-                title: "这个是一个小新闻",
-                _id: "123",
-                tip: "TIP",
-                imgCover: "https://qiniu.jevons.xyz/mock/mock.jpg",
-                content: "在Button上加上属性open-type=share,点击Button按钮，即可给好友分享。不加onShareAppMessage函数，分享的地址，连接都是默认生成的。如是要自定义分享给好友的地址，连接等就要自己写onShareAppMessage函数",
-                author: "who",
-                desc: "在Button上加上属性open-type=sh",
-                date: "2019-5-20 20:14:07"
-            }
-        ];
+        const newsItem = this.state.newDataArr;
+
         return(
             <View className="slider-style">
                 <View
                     className="slider-scroll">
                     {
-                        mockData.map((item) => (
+                        newsItem.map(item => (
                             <View
                                 className="item-slider"
                                 key={item._id}
                                 onClick={this.toPage.bind(this, item)}>
                                 <Image
                                     className="img"
-                                    src={item.imgCover}
+                                    lazyLoad={true}
+                                    src={item.imgCover ? item.imgCover : "https://qiniu.jevons.xyz/mock/starMock.gif"}
                                     mode="aspectFill"
                                 />
                                 <View className="text-box">
-                                    <Text className="tip">{item.tip}</Text>
+                                    <Text className="tip">{item.tip ? item.tip : "HOT"}</Text>
                                     <Text className="title">{item.title}</Text>
                                 </View>
                             </View>

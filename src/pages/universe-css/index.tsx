@@ -32,6 +32,10 @@ class UniverseCss extends Component {
                             <View className="asteroids-belt"/>
                         </View>
                     </View>
+                    <View className="universe-desc-box">
+                        <View className="universe-desc-item">Solar System orbit animation true time scaled</View>
+                        <View className="universe-desc-item">Made with by Malik Dellidj</View>
+                    </View>
                 </View>
         );
     }

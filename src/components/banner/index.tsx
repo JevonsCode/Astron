@@ -1,11 +1,32 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text, Swiper, SwiperItem, Video } from "@tarojs/components";
-// import { observer, inject } from "@tarojs/mobx";
+import { banner_url } from "@/api";
 import "./main.scss";
+
+interface Banner {
+    state: {
+        bannerUrl: string;
+    };
+}
 
 class Banner extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            bannerUrl: "https://qiniu.jevons.xyz/video.mp4"
+        };
+    }
+
+    componentWillMount() {
+        banner_url().then((r:any) => {
+            console.log("urlBanner", r.data);
+            if(r.data.code==="1000") {
+                this.setState({
+                    bannerUrl: r.data.msg
+                });
+            }
+        });
     }
 
     // 样式用全局要加这个
@@ -14,12 +35,13 @@ class Banner extends Component {
     };
 
     render() {
+        console.log("urlBanner2", this.state.bannerUrl);
         return(
             <View className="banner-style my-3" onClick={this.toPage.bind(this, "newsItem")}>
 
                 <Video
                     className="video"
-                    src="https://qiniu.jevons.xyz/video.mp4"
+                    src={this.state.bannerUrl}
                     controls={false}
                     autoplay={true}
                     // loop={true}

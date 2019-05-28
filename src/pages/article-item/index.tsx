@@ -76,6 +76,7 @@ class Article extends Component<IProps, IState> {
                     <View className="imgCover">
                         <Image
                         className="imgCover-img"
+                        lazyLoad={true}
                         src={news.imgCover}
                         mode="widthFix" />
                         <View className="placeholder" />
@@ -97,7 +98,7 @@ class Article extends Component<IProps, IState> {
                             loading={this.state.isStar}
                             disabled={this.state.isStar}
                             className="at-icon at-icon-star collect collect-btn"
-                            open-type="getUserInfo"
+                            openType="getUserInfo"
                             onGetUserInfo={this.getUserInfo}
                             onClick={this.collect.bind(this, news._id)} />
                         }

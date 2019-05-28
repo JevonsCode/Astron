@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, Text } from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames"; // 这是一个包
 
 interface Placeholder {

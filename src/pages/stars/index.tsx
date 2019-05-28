@@ -138,6 +138,7 @@ class Stars extends Component<ITabs, IState> {
                                             <Image
                                                 className="star-img"
                                                 mode="aspectFit"
+                                                lazyLoad={true}
                                                 src={star.imgLink} />
                                         </View>
 

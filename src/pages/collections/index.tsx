@@ -80,7 +80,7 @@ class Collections extends Component {
                                     <Image className="list-item-img" mode="aspectFill" lazyLoad={true} src={item.imgCover ? item.imgCover : "https://qiniu.jevons.xyz/mock/starMock.gif"} />
                                     <View className="list-item-info">
                                         <View className="list-item-info-title">{item.title}</View>
-                                        <View className="list-item-info-date">{item.date.substr(0,8)}</View>
+                                        <View className="list-item-info-date">{item.date.substr(0,10)}</View>
                                         <View className="list-item-info-desc">{item.desc}</View>
                                     </View>
                                 </View>

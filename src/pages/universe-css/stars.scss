@@ -16,6 +16,26 @@
   Pluto : ~90 580 days (~248 years)
 */
 
+.universe-box {
+  position: relative;
+
+  .universe-desc-box {
+    position: absolute;
+    color: #FFF;
+    font-size: 1rem;
+    bottom: 2rem;
+    left: .8rem;
+    z-index: 6;
+
+    .universe-desc-item {
+      color: #FFF;
+      font-size: .5rem;
+      font-weight: 300;
+      margin-top: .2rem;
+    }
+  }
+}
+
 $year-in-second : 30; // 1 Earth year = 30 sec
 
 @function revolution($pl-year-in-days) {
@@ -68,6 +88,7 @@ $asteroids-belt-pl: 210px;
 .universe-box, .universe-bg {
   width: 100vw;
   height: 100vh;
+  
 }
 
 // 背景

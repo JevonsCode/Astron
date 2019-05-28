@@ -42,11 +42,12 @@ interface Index {
             getStorageID: Function,
             onLoginByWeapp: Function,
             isGetUserInfo: Function
-        }
+        },
+        whichNews: {}
     };
 }
 
-@inject("userInfo")
+@inject("userInfo", "whichNews")
 @observer
 class Index extends Component {
     config: Config = {
@@ -63,6 +64,9 @@ class Index extends Component {
     async componentWillMount () {
         obtainNews().then((res) => {
             const response = res.data;
+
+            this.props.whichNews = response;
+
             // 如果是开发环境就等2s
             if (process.env.NODE_ENV === "development") {
                 console.log(response,"response! 开发模式ing");

@@ -10,6 +10,9 @@ interface NewsItem {
             params: {}
         }
     };
+    state: {
+        isClick: boolean
+    };
 }
 
 type newsItem = {
@@ -64,7 +67,7 @@ class NewsItem extends Component {
                         <Button
                             className="at-icon at-icon-share share-icon"
                             onClick={this.share}
-                            open-type="share" />
+                            openType="share" />
                     </View>
 
                     {

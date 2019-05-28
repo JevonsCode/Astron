@@ -1,6 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Button, Image } from "@tarojs/components";
-import { collections_which } from "@/api";
+import { AtFloatLayout } from "taro-ui";
+import { collections_which, about_us } from "@/api";
 import { observer, inject } from "@tarojs/mobx";
 import "./main.scss";
 
@@ -20,6 +21,10 @@ interface Mine {
             isGetUserInfo: Function
         }
     };
+    state: {
+        isOpenedF: boolean,
+        aboutUs: [string]
+    };
 }
 
 type IREDATA = {
@@ -32,7 +37,14 @@ type IREDATA = {
 class Mine extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isOpenedF: false,
+            aboutUs: ["ASTRON"]
+        };
+
         this.clickCollections = this.clickCollections.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     config = {
@@ -47,6 +59,13 @@ class Mine extends Component {
 
         !this.props.userInfo._id &&
         this.props.userInfo.getStorageID();
+
+        // 请求关于我们的内容
+        about_us().then((r) => {
+            if(r.data.code==="1000") {
+                this.articleFormat(r.data.msg);
+            }
+        });
     }
 
     /**
@@ -77,11 +96,11 @@ class Mine extends Component {
                 {
                     (!nickName)&&(!_id) ? (
                         <View className="mine-style-unknow">
-                            <Text>申请获取你的公开信息（昵称、头像等）</Text>
                             <Button
-                                open-type="getUserInfo"
+                                className="btn"
+                                openType="getUserInfo"
                                 onGetUserInfo={this.getUserInfo}>
-                                微信授权
+                                微信登录
                             </Button>
                         </View>
                     ) : (
@@ -91,24 +110,79 @@ class Mine extends Component {
                                 <Text className="info-name">{nickName}</Text>
                             </View>
                             <View className="option-box">
-                                <View className="option-item" onClick={this.clickCollections}>
+                                <Button className="option-item option-item-btn" onClick={this.clickCollections}>
                                     <View className="at-icon at-icon-star option-item-icon" />
                                     我的收藏
-                                </View>
-                                <View className="option-item">
+                                </Button>
+                                <Button
+                                    openType="feedback"
+                                    className="option-item option-item-btn">
                                     <View className="at-icon at-icon-mail option-item-icon" />
                                     意见建议
-                                </View>
-                                <View className="option-item">
+                                </Button>
+                                <Button onClick={this.handleClose} className="option-item option-item-btn">
                                     <View className="at-icon at-icon-alert-circle option-item-icon" />
                                     关于Astron
-                                </View>
+                                </Button>
                             </View>
                         </View>
                     )
                 }
+                <AtFloatLayout
+                    isOpened={this.state.isOpenedF}
+                    title="ABOUT ASTRON & US"
+                    onClose={this.handleClose}>
+                    <View className="details-box">
+                        {
+                            this.state.aboutUs.map((item:string, index) => {
+                                return (
+                                    item.substring(0, 3) !== "#I#" ?
+                                    (
+                                        item.substring(0, 3) !== "#C#" ?
+                                        <View key={Math.random()} className="at-article at-article__p details-article">
+                                            {item}
+                                        </View>
+                                        :
+                                        <View key={Math.random()} className="at-article at-article__p details-article details-article-C">
+                                            {item.substring(3)}
+                                        </View>
+                                    ) :
+                                    (
+                                        <Image
+                                            className="at-article__img"
+                                            src={item.substring(3)}
+                                            lazyLoad={true}
+                                            mode="widthFix" />
+                                    )
+                                );
+                            })
+                        }
+                    </View>
+                </AtFloatLayout>
             </View>
         );
+    }
+
+    /**
+     * 把字符串按 #B# 分开
+     * @param S 字符串
+     */
+    articleFormat(S:string) {
+        // this.state.artArr = art.split("#B#");
+        this.setState({
+            aboutUs: S.split("#B#")
+        });
+    }
+
+    /**
+     * 弹窗开关
+     */
+    handleClose() {
+        setTimeout(() => {
+            this.setState({
+                isOpenedF: !this.state.isOpenedF
+            });
+        },300);
     }
 
     /**
