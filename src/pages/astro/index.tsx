@@ -2,6 +2,8 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { AtTabs, AtTabsPane } from "taro-ui";
 import { obtainHistory } from "@/api";
+import ImgBox from "./components/img-box";
+import InfoIndex from "./components/info-index";
 // import SearchBar from "../../components/search-bar/index";
 import "./mian.scss";
 
@@ -17,6 +19,7 @@ type IHistory = {
 
 interface Astro {
     state: {
+        current: number,
         historyData: [IHistory]
     };
 }
@@ -25,6 +28,7 @@ class Astro extends Component {
     constructor(p) {
         super(p);
         this.state = {
+            current: 0,
             historyData: []
         };
     }
@@ -56,16 +60,15 @@ class Astro extends Component {
 
     render() {
         const tabList=[
-            { title: "详情" },
-            { title: "参数特征" }
+            { title: "全部" },
+            { title: "a-z" }
         ];
         return(
             <View className="history-style">
                 <View className="history-header-box">
-                    历史事件
+                    航空历史
                 </View>
                 <View>
-
                     <AtTabs
                         swipeable={true}
                         animated={true}
@@ -73,10 +76,10 @@ class Astro extends Component {
                         onClick={this.handleClick}
                         tabList={tabList}>
                         <AtTabsPane current={this.state.current} index={0}>
-                        qweqwe
+                            <ImgBox data={this.state.historyData} />
                         </AtTabsPane>
                         <AtTabsPane current={this.state.current} index={1}>
-                            112345346
+                            <InfoIndex />
                         </AtTabsPane>
                     </AtTabs>
 

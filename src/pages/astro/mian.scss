@@ -1,10 +1,88 @@
+@import "~taro-ui/dist/style/components/indexes.scss";
+@import "~taro-ui/dist/style/components/list.scss";
+
 .history-style {
 
     .history-header-box {
         width: 100vw;
-        height: 30vh;
+        height: 20vh;
         text-align: center;
-        line-height: 30vh;
-        
+        line-height: 20vh;
+        font-size: 1.5rem;
+        letter-spacing: 5rpx;
     }
+}
+
+.img-box {
+    width: 100vw;
+    min-height: 70vh;
+    
+    // background: rgba(216, 7, 7, 0.678);
+    .img-item {
+        float: left;
+
+        width: 96vw * 1/3;
+        height: 96vw * 1/3;
+        position: relative;
+        padding-top:2vw * 1/2;
+        padding-left:2vw * 1/2;
+
+        &:nth-child(3) {
+            padding-right:2vw * 1/2;
+        }
+
+        .item-img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(252, 252, 252, 0)), to(rgba(0, 0, 0, 0.911)));;
+            }
+        }
+        .item-info {
+            position: absolute;
+            color: #FFF;
+            bottom: 12rpx;
+            left: 16rpx;
+            z-index: 3;
+            // background: rgba(255, 230, 0, 0.404);
+            height: 46%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 90%;
+
+            .item-title, .item-desc {
+                text-overflow: ellipsis;
+                overflow:hidden;
+                // white-space:nowrap;
+                display: block;
+            }
+
+            .item-title {
+                width: 85%;
+                height: 60%;
+                font-size: .7rem;
+            }
+            .item-desc {
+                width: 85%;
+                font-size: .6rem;
+                white-space:nowrap;
+            }
+        }
+    }
+}
+
+.info-index {
+    width: 100vw;
+    min-height: 70vh;
+    background: rgba(110, 6, 245, 0.411);
 }

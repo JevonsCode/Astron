@@ -1,6 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Image, Button } from "@tarojs/components";
-import { observer, inject } from "@tarojs/mobx";
+import { observer, inject, action } from "@tarojs/mobx";
 import { collections_add } from "@/api";
 import "./main.scss";
 
@@ -31,6 +31,7 @@ interface IProps {
         getStorageInfo: Function,
         isGetUserInfo: Function,
         getStorageID: Function
+        whichColls: []
     };
 
 }
@@ -39,6 +40,7 @@ type IState = {
     isStar: boolean,
     toastText: string,
     isOpened: boolean
+    artTemp: {}
 };
 
 @inject("whichNews", "userInfo")
@@ -50,7 +52,8 @@ class Article extends Component<IProps, IState> {
         this.state = {
             isStar: false,
             toastText: "",
-            isOpened: false
+            isOpened: false,
+            artTemp: {} // 文章暂存
         };
     }
 
@@ -131,7 +134,7 @@ class Article extends Component<IProps, IState> {
     }
 
     /**
-     *
+     * 收藏
      * @param id 这是文章的 `_id` ！！！
      */
     collect(id) {
@@ -176,6 +179,11 @@ class Article extends Component<IProps, IState> {
 
                 // 添加到 mobx
                 this.props.userInfo.collections.push(id);
+
+                // 从收藏列表过来 给文章列表加的时候 我现在知道id 肯定是不知道文章是啥的
+                // 所以在这个页里把这个文章取消前暂存一下 (this.state.artTemp)
+                // 因为从收藏列表过来肯定是先取消后收藏的
+                this.props.userInfo.whichColls.push(this.state.artTemp);
                 Taro.showToast({
                     title: "收藏成功~",
                     icon: "none",
@@ -254,6 +262,22 @@ class Article extends Component<IProps, IState> {
                 });
                 // 从 mobx 中删除
                 this.props.userInfo.collections.remove(id);
+
+                // 从列表过来取消收藏 this.state.artTemp 暂存
+                let whichNewsItem;
+                this.props.userInfo.whichColls.slice().forEach((item) => {
+                    if(item._id === id) {
+                        whichNewsItem = item;
+                    }
+                });
+
+                this.setState({
+                    artTemp: whichNewsItem
+                });
+                // console.log(0000, this.props.userInfo.whichColls.slice(),whichNewsItem._id, id);
+                console.log(1111, this.props.userInfo.whichColls.slice(),whichNewsItem._id, id);
+                this.props.userInfo.whichColls.remove(whichNewsItem);
+                console.log(2222, this.props.userInfo.whichColls.slice());
                 Taro.showToast({
                     title: "取消成功~",
                     icon: "none",

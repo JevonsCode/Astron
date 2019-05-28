@@ -8,7 +8,8 @@ import "./mian-colls.scss";
 interface Collections {
     state: {
         whichColls: [],
-        btnDis: boolean
+        btnDis: boolean,
+        isClick: boolean
     };
 
     props: {
@@ -29,14 +30,15 @@ type newsItem = {
     tip?: string
 };
 
-@inject("userInfo")
+@inject("userInfo", "whichNews")
 @observer
 class Collections extends Component {
     constructor(preps) {
         super(preps);
         this.state = {
             whichColls: [],
-            btnDis: false
+            btnDis: false,
+            isClick: false
         };
         this.toPage = this.toPage.bind(this);
     }
@@ -45,6 +47,7 @@ class Collections extends Component {
         navigationBarTitleText: "ASTRON"
     };
 
+    // 这个页还是有坑  数据存在 state 就不能动态刷新
     componentWillMount() {
         this.setState({
             whichColls: this.props.userInfo.whichColls.slice()
@@ -53,16 +56,16 @@ class Collections extends Component {
 
     render() {
         console.log("进来收藏列表页 mobx取值：", this.props.userInfo.whichColls.slice());
-        let whichColls = this.state.whichColls;
-        if(typeof(whichColls)==="string") {
-            whichColls = JSON.parse(whichColls);
+        let whichColls_ = this.props.userInfo.whichColls.slice();
+        if(typeof(whichColls_)==="string") {
+            whichColls_ = JSON.parse(whichColls_);
         }
-        console.log("遍历这个值",whichColls.length,whichColls);
+        console.log("遍历这个值",whichColls_.length,whichColls_);
         return(
             <View className="collections-style">
 
             {
-                whichColls.length === 0 ?
+                whichColls_.length === 0 ?
                 <View className="nothing-box">
                     <Text
                         onClick={this.toPage}>
@@ -71,11 +74,11 @@ class Collections extends Component {
                 </View> :
                 <View className="list-box">
                     {
-                        whichColls.map((item:newsItem) => {
+                        whichColls_.map((item:newsItem) => {
                             return (
                                 item
                                 ?
-                                <View key={item._id} className="list-item">
+                                <View key={item._id} className="list-item" onClick={this.toPageArt.bind(this, item)}>
                                     <Button disabled={this.state.btnDis} onClick={this.deleteBtnFun.bind(this, item._id)} className="at-icon at-icon-close list-item-delete" />
                                     <Image className="list-item-img" mode="aspectFill" lazyLoad={true} src={item.imgCover ? item.imgCover : "https://qiniu.jevons.xyz/mock/starMock.gif"} />
                                     <View className="list-item-info">
@@ -106,6 +109,18 @@ class Collections extends Component {
      * @param id 取的是文章的id
      */
     deleteBtnFun(id:string) {
+        if(this.state.isClick === true) {
+            return;
+        }
+        this.setState({
+            isClick: true
+        });
+        setTimeout(() => {
+            this.setState({
+                isClick: false
+            });
+        }, 300);
+
         this.setState({
             btnDis: true
         });
@@ -246,6 +261,20 @@ class Collections extends Component {
     toPage() {
         Taro.switchTab({
             url: "/pages/index/index"
+        });
+    }
+
+    /**
+     * @desc 跳转文章页
+     */
+    toPageArt(item) {
+        if(this.state.isClick === true) {
+            return;
+        }
+        const { whichNews } = this.props;
+        whichNews.params = item;
+        Taro.navigateTo({
+            url: "/pages/article-item/index"
         });
     }
 }
