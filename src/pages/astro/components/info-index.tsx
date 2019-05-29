@@ -18,10 +18,8 @@ interface InfoIndex {
     props: {
         whichHis: {
             params: IHistory
-        }
-    };
-    state: {
-        sortHistoryData: [IHistory]
+        },
+        data: IHistory[]
     };
 }
 
@@ -30,29 +28,10 @@ interface InfoIndex {
 class InfoIndex extends Component {
     constructor(p) {
         super(p);
-
-        this.state = {
-            sortHistoryData: []
-        };
-    }
-
-    componentWillMount() {
-        obtainSortHistory().then((r) => {
-            this.setState({
-                sortHistoryData: r.data
-            });
-        }).catch((e) => {
-            Taro.showToast({
-                title: "历史资料请求超时0.2 QAQ",
-                icon: "none",
-                mask: true,
-                duration: 1200
-            });
-        });
     }
 
     render() {
-        const sortHistoryData = this.state.sortHistoryData;
+        const sortHistoryData = this.props.data;
         return(
             <View className="img-box">
                 {

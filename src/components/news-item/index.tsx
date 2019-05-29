@@ -67,6 +67,7 @@ class NewsItem extends Component {
                         <Button
                             className="at-icon at-icon-share share-icon"
                             onClick={this.share}
+                            dataset={newsItem.title}
                             openType="share" />
                     </View>
 

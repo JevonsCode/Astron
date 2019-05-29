@@ -69,6 +69,40 @@ class Index extends Component {
         newDataArr: []
     };
 
+
+    onShareAppMessage(res) {
+        console.log(res);
+        if(res.from === "button") {
+            return {
+                title: "ASTRON - 点燃你探索宇宙的心",
+                // path: "/pages/article-item/index?",
+                // imageUrl: "/assets/img/Astron.png",
+                success (res) {
+                    console.log(res);
+                    console.log("转发成功:" + JSON.stringify(res));
+                },
+                fail (res) {
+                  // 转发失败
+                    console.log("转发失败:" + JSON.stringify(res));
+                }
+            };
+        } else {
+            return {
+                title: "ASTRON - 点燃你探索宇宙的心",
+                path: "/pages/index/index",
+                imageUrl: "https://qiniu.jevons.xyz/mock/AstronLOGO.png",
+                success (res) {
+                    console.log(res);
+                    console.log("转发成功:" + JSON.stringify(res));
+                },
+                fail (res) {
+                  // 转发失败
+                    console.log("转发失败:" + JSON.stringify(res));
+                }
+            };
+        }
+    }
+
     /**
      * 下拉刷新
      */

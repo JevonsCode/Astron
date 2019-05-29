@@ -17,7 +17,8 @@ interface ImgBox {
     props: {
         whichHis: {
             params: IHistory
-        }
+        },
+        data: IHistory[]
     };
 }
 
@@ -27,7 +28,6 @@ class ImgBox extends Component {
     constructor(p) {
         super(p);
     }
-
 
     render() {
         const { data:historyData } = this.props;

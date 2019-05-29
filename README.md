@@ -3,6 +3,10 @@
 关于天文学的小程序
 ![Progress](http://progressed.io/bar/2?title=coding)
 
+> 上线 
+
+2019-5-29 14:36:14 0.3.7
+
 > Global TODO
 
 - [x] 首页 

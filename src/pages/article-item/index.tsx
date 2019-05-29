@@ -61,9 +61,39 @@ class Article extends Component<IProps, IState> {
         navigationBarTitleText: "Article"
     };
 
+    onShareAppMessage(res) {
+        console.log(res);
+        return {
+            title: "ASTRON - 点燃你探索宇宙的心",
+            path: "/pages/article-item/index?",
+            // imageUrl: "/assets/img/Astron.png",
+            success (res) {
+                console.log("转发成功:" + JSON.stringify(res));
+            },
+            fail (res) {
+              // 转发失败
+                console.log("转发失败:" + JSON.stringify(res));
+            }
+        };
+    }
+
     componentDidMount () {
         const article = this.props.whichNews.params.content;
         WxParse.wxParse("article", "html", article, this.$scope, 5);
+
+
+        // const pages = getCurrentPages(); //获取加载的页面
+
+        // const currentPage = pages[pages.length-1]; //获取当前页面的对象
+
+        // const url = currentPage.route; //当前页面url
+
+        // const options = currentPage.options; //如果要获取url中所带的参数可以查看options
+
+        // console.log("--",pages);
+        // console.log("--",currentPage);
+        // console.log("--",url);
+        // console.log("--",options);
     }
 
     render () {

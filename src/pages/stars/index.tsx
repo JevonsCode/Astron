@@ -59,6 +59,22 @@ class Stars extends Component<ITabs, IState> {
         });
     }
 
+    onShareAppMessage() {
+        return {
+            title: "ASTRON - 点燃你探索宇宙的心",
+            path: "/pages/stars/index",
+            // imageUrl: "/assets/img/Astron.png",
+            success (res) {
+                console.log(res);
+                console.log("转发成功:" + JSON.stringify(res));
+            },
+            fail (res) {
+              // 转发失败
+                console.log("转发失败:" + JSON.stringify(res));
+            }
+        };
+    }
+
     // taro 组件的点击 要重写 TODO
     handleClick (value) {
         this.setState({

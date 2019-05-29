@@ -47,6 +47,22 @@ class Article extends Component<IProps, IState> {
         navigationBarTitleText: "HISTORY"
     };
 
+    onShareAppMessage() {
+        return {
+            title: "ASTRON - 点燃你探索宇宙的心",
+            path: "/pages/history-item-item/index?",
+            // imageUrl: "/assets/img/Astron.png",
+            success (res) {
+                console.log(res);
+                console.log("转发成功:" + JSON.stringify(res));
+            },
+            fail (res) {
+              // 转发失败
+                console.log("转发失败:" + JSON.stringify(res));
+            }
+        };
+    }
+
     componentDidMount () {
         const article = this.props.whichHis.params.content;
         WxParse.wxParse("article", "html", article, this.$scope, 5);
