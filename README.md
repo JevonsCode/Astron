@@ -1,5 +1,7 @@
 # Astron
 
+![QRCode](./gh_b94da3d8d44b_258.jpg)
+
 关于天文学的小程序
 ![Progress](http://progressed.io/bar/2?title=coding)
 
