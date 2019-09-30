@@ -2,9 +2,7 @@
 @import "~taro-ui/dist/style/components/article.scss";
 
 .scroll-view-style {
-    .tab-item-box {
-
-    }  
+    .tab-item-box {}
 }
 
 .tab-header-box {
@@ -17,7 +15,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding-top: 3rem; 
+    padding-top: 3rem;
 
     // bulingbuling
     .stars-bulingbuling {
@@ -41,15 +39,16 @@
             box-shadow: $starColor2;
         }
     }
-    
+
     @keyframes animStar {
         from {
             transform: translateX(1000px);
         }
+
         to {
             transform: translateX(-1000px);
         }
-    }    
+    }
 
     position: relative;
 
@@ -64,6 +63,7 @@
             color: #FFF;
             font-weight: 500;
         }
+
         .desc {
             font-size: .7rem;
             color: rgba(255, 255, 255, 0.664);
@@ -162,6 +162,7 @@
                 position: absolute;
                 bottom: 0;
             }
+
             .tab-underline {
                 width: 100%;
                 height: 2px;
@@ -174,7 +175,9 @@
             }
         }
     }
-    .tab-content-details, .tab-content-parameter {
+
+    .tab-content-details,
+    .tab-content-parameter {
         width: 100vw;
         padding-top: 2.5rem;
         padding-bottom: 1.3rem;
@@ -189,8 +192,7 @@
         }
     }
 
-    .tab-content-parameter {
-    }
+    .tab-content-parameter {}
 }
 
 .details-box {
@@ -200,10 +202,11 @@
     .details-article {
         white-space: initial;
     }
+
     .details-article-C {
         font-weight: 800;
         font-size: 30rpx;
-        margin-top: 45rpx ;
+        margin-top: 45rpx;
         margin-bottom: 5rpx;
     }
 }
@@ -227,12 +230,15 @@
             border: none
         }
 
-        .key, .value {
+        .key,
+        .value {
             width: 50%;
         }
+
         .key {
             padding-left: 1rem;
         }
+
         .value {
             padding-left: 1rem;
         }
@@ -243,16 +249,19 @@
 .at-tabs--scroll .at-tabs__header::-webkit-scrollbar {
     display: none !important
 }
+
 .at-tabs__header {
     position: fixed;
     top: 0;
     z-index: 5;
-    background: rgba(4,11,27);
+    background: rgb(4, 11, 27);
     padding-bottom: 10rpx;
 }
+
 .at-tabs__item {
     color: rgba(255, 255, 255, 0.726);
 }
+
 .at-tabs__item-underline {
     background: #BD8355;
     width: .5rem;
@@ -263,11 +272,13 @@
     right: 0;
     border-radius: .5rem;
 }
+
 .at-tabs__item--active {
     color: #BD8355;
     font-weight: 800;
 }
+
 .at-article__p {
     margin-top: 15rpx;
-    margin-bottom: 45rpx; 
+    margin-bottom: 45rpx;
 }
