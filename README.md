@@ -1,6 +1,6 @@
 <img src="./READMESOURCE/qrcode.jpg" alt="qrcode" />  
 
-<a link="./README.md">ENGLISH</a>
+[中文](./README.zh-CN.md)
 
 # Astron --- Astronomical science wxapp program
 

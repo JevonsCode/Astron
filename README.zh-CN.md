@@ -1,6 +1,6 @@
 <img src="./READMESOURCE/qrcode.jpg" alt="qrcode" />  
 
-<a link="./README.zh-CN.md">中文</a>
+[ENGLISH](./README.md)
 
 # Astron --- 天文科普小程序
 
