@@ -1,58 +1,43 @@
-# Astron
+<img src="./READMESOURCE/qrcode.jpg" alt="qrcode" />  
 
-![QRCode](./gh_b94da3d8d44b_258.jpg)
+<a link="./README.md">ENGLISH</a>
 
-关于天文学的小程序
-![Progress](http://progressed.io/bar/2?title=coding)
+# Astron --- Astronomical science wxapp program
 
-> 上线 
+### Expected content
 
-2019-5-29 14:36:14 0.3.7
+#### WeChat App Side
 
-> Global TODO
+- [ ] Article & News List  
+- [ ] Like & Star & Comment  
+- [ ] Multilingual
+- [ ] Show planet model
+- [ ] Show Aerospace history  
+- [ ] Personal information
 
-- [x] 首页 
-![Progress](http://progressed.io/bar/100)
+#### Others
 
-- [x] 资料&图像展示页 
-![Progress](http://progressed.io/bar/100)
+Automated/artificial article publishing via crawler & background management  
 
-- [x] 历史展示页 
-![Progress](http://progressed.io/bar/100)
+Automatic tagging of crawler articles via Tensorflow, automatic translation
 
-- [x] 个人中心 
-![Progress](http://progressed.io/bar/100)
+#### Uncertain
 
----
+[todo] D3 etc js'insert 
 
-> Widget TODO
+### New version of refactoring
 
-- [x] 富文本返回文本 css
-![Progress](http://progressed.io/bar/100)
+- [ ] Backend progress 
+![Progress](http://progressed.io/bar/30)
 
-- [x] 下拉加载 & 接口定义
-![Progress](http://progressed.io/bar/100)
+- [ ] Background management progress 
+![Progress](http://progressed.io/bar/0)
 
-- [x] 滚动头部标签组件
-![Progress](http://progressed.io/bar/100)
+- [ ] WeChat App progress(open source)
+![Progress](http://progressed.io/bar/0)
 
-- [x] 轮播图组件
-![Progress](http://progressed.io/bar/100)
+- [ ] Crawler progress
+![Progress](http://progressed.io/bar/0)
 
-- [x] 行星数据库
-![Progress](http://progressed.io/bar/100)
-
-- [x] sticky
-![Progress](http://progressed.io/bar/100)
-
----
-
-开发第二版中...
-
-> 参考
-
-  https://codepen.io/anon/pen/wOZoGb
-
-  https://codepen.io/ARS/pen/vEwEPP
-
-  https://codepen.io/lbebber/pen/ypgql
+- [ ] Tensorflow progress 
+![Progress](http://progressed.io/bar/0)
