@@ -28,7 +28,7 @@
 ### 新版重构中
 
 - [ ] 后端进度 
-![Progress](http://progressed.io/bar/30)
+![Progress](http://progressed.io/bar/40)
 
 - [ ] 后台管理进度 
 ![Progress](http://progressed.io/bar/0)

@@ -28,7 +28,7 @@ Automatic tagging of crawler articles via Tensorflow, automatic translation
 ### New version of refactoring
 
 - [ ] Backend progress 
-![Progress](http://progressed.io/bar/30)
+![Progress](http://progressed.io/bar/40)
 
 - [ ] Background management progress 
 ![Progress](http://progressed.io/bar/0)
