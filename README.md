@@ -1,3 +1,5 @@
+# [V1.0](https://github.com/jevonsofcode/Astron/tree/%E5%88%9D%E5%A7%8B%E7%89%88%E6%9C%AC%EF%BC%88%E5%BC%83%EF%BC%89)
+
 <img src="./READMESOURCE/qrcode.jpg" alt="qrcode" />  
 
 [中文](./README.zh-CN.md)
